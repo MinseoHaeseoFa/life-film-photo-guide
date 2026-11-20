@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<title>인생이라는 필름 — 가장 빛나는 한 컷을 남기는 법</title>
+<meta name="description" content="상황별로 바로 찾아 쓰는 사진 촬영 가이드. 구도·빛·포즈·폰 카메라 세팅을 그림과 함께 3초 만에 이해하고, 현장 체크리스트로 바로 적용하세요."/>
+<meta name="theme-color" content="#17140f"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<a class="skip" href="#cards">카드 목록으로 바로가기</a>
+
+<header class="topbar">
+  <div class="topbar__inner">
+    <a class="brand" href="#top">
+      <span class="brand__mark" aria-hidden="true">◐</span>
+      <span class="brand__text">인생이라는 필름<em>PHOTO FIELD GUIDE</em></span>
+    </a>
+    <nav class="topnav">
+      <a href="#cards">촬영 카드</a>
+      <a href="#sources">출처 검증</a>
+      <a href="#how">쓰는 법</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="hero__inner">
+      <div class="hero__copy">
+        <p class="eyebrow">FIELD NOTES · 2026</p>
+        <h1>인생이라는 필름,<br/><span>가장 빛나는 한 컷</span>을 남기는 법</h1>
+        <p class="lede">지금 눈앞의 순간에 맞는 촬영법을 골라 바로 쓰세요. 구도·빛·포즈·폰 설정을 <strong>그림 한 장과 세 단계</strong>로 정리했습니다.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="#cards">상황별로 찾기</a>
+          <button class="btn btn--ghost" id="randomBtn" type="button">랜덤 한 컷 뽑기</button>
+        </div>
+        <dl class="stats">
+          <div><dt>실전 카드</dt><dd id="statCards">39</dd></div>
+          <div><dt>검증한 원문 링크</dt><dd>13</dd></div>
+          <div><dt>참고 링크</dt><dd>36</dd></div>
+        </dl>
+      </div>
+      <div class="hero__film" aria-hidden="true">
+        <div class="filmstrip">
+          <span class="filmstrip__holes"></span>
+          <div class="filmstrip__frames" id="heroFrames"></div>
+          <span class="filmstrip__holes"></span>
+        </div>
+        <p class="filmstrip__caption">36 EXP · THE LIFE FILM</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="controls" id="controls" aria-label="상황 필터와 검색">
+    <div class="controls__inner">
+      <div class="searchrow">
+        <label class="search">
+          <span class="search__icon" aria-hidden="true">⌕</span>
+          <input id="searchInput" type="search" placeholder="상황·기법 검색" aria-label="상황이나 기법으로 검색" autocomplete="off"/>
+          <button class="search__clear" id="searchClear" type="button" aria-label="검색어 지우기" hidden>✕</button>
+        </label>
+        <button class="favfilter" id="favFilter" type="button" aria-pressed="false">
+          <span aria-hidden="true">★</span> 스크랩만
+        </button>
+      </div>
+
+      <div class="chiprow" id="catChips" role="tablist" aria-label="상황 선택"></div>
+
+      <div class="filterrow">
+        <div class="seg" id="lensFilter" role="group" aria-label="렌즈 배율"></div>
+        <label class="select">
+          <span>난이도</span>
+          <select id="levelSelect">
+            <option value="all">전체</option>
+            <option value="1">쉬움</option>
+            <option value="2">보통</option>
+            <option value="3">고급</option>
+          </select>
+        </label>
+        <p class="count" id="resultCount" aria-live="polite"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="cards">
+    <div class="section__head">
+      <h2>지금 어떤 순간을 담고 싶으세요?</h2>
+      <p>카드를 누르면 <b>Before ↔ After 뷰파인더</b>, 3단계, 체크리스트가 열립니다.</p>
+    </div>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden>
+      <p>조건에 맞는 카드가 없습니다.</p>
+      <button class="btn btn--ghost" id="resetBtn" type="button">필터 초기화</button>
+    </div>
+  </section>
+
+  <section class="section howto" id="how">
+    <div class="section__head">
+      <h2>이렇게 쓰세요</h2>
+    </div>
+    <ol class="howto__list">
+      <li><span>1</span><div><b>상황을 고릅니다.</b> 혼자 여행, 인물, 풍경, 카페, 야경 중 지금과 가까운 칩을 누르세요.</div></li>
+      <li><span>2</span><div><b>그림으로 먼저 이해합니다.</b> 카드의 뷰파인더에서 <em>Before</em>와 <em>After</em>를 번갈아 눌러 보세요. 무엇이 달라지는지 눈으로 확인됩니다.</div></li>
+      <li><span>3</span><div><b>현장에서 체크리스트를 씁니다.</b> 체크한 내용은 이 브라우저에 저장되어, 다시 열어도 남아 있습니다.</div></li>
+    </ol>
+  </section>
+
+  <section class="section sources" id="sources">
+    <div class="section__head">
+      <h2>출처 검증 노트</h2>
+      <p>요청하신 링크 13개를 직접 열어 확인했습니다. 확인된 것과 확인하지 못한 것을 나눠 적었습니다.</p>
+    </div>
+    <div class="sourceGrid">
+      <div class="sourceCard">
+        <h3><span class="dot dot--ok"></span>확인됨 <small>10</small></h3>
+        <ul>
+          <li><b>@elanvital7</b> — 스마트폰 사진 구도와 빛 20가지 (캡션 확인)</li>
+          <li><b>@ukwanghyun</b> — 가을사진 7가지 (캡션 확인)</li>
+          <li><b>@donggi_photo</b> Threads — 물웅덩이 반영샷 5단계 (본문 확인)</li>
+          <li><b>@_23iii_</b> — 갤럭시 프로모드 벚꽃 색감 값 (캡션 확인)</li>
+          <li><b>@junnywhere</b> — 비·불꽃놀이·인물모드·별 사진 (캡션 4건 확인)</li>
+          <li><b>@photofreak_guy</b> — 노을 프로모드 값 (캡션 확인)</li>
+          <li><b>미드나잇 YouTube</b> — 갤럭시 은하수 촬영 (영상 내용 확인)</li>
+        </ul>
+      </div>
+      <div class="sourceCard">
+        <h3><span class="dot dot--part"></span>부분 확인 <small>2</small></h3>
+        <ul>
+          <li><b>@clos_click</b> — 캡션에 기법 설명 없음. 영상 프레임에서 접사·프로모드 데모로만 확인</li>
+          <li><b>@kfconcept</b> — 캡션에 수치 없음. 차량 라이트 트레일(장노출) 주제만 확인</li>
+        </ul>
+      </div>
+      <div class="sourceCard">
+        <h3><span class="dot dot--no"></span>접근 제한 <small>1</small></h3>
+        <ul>
+          <li><b>@pure.moood</b> Threads — “이 콘텐츠는 일부 사용자만 이용할 수 있습니다”로 본문을 볼 수 없어 <b>내용을 넣지 않았습니다.</b></li>
+        </ul>
+      </div>
+    </div>
+    <details class="sourceMore">
+      <summary>링크 13개 상태 자세히 보기</summary>
+      <div class="tableWrap">
+        <table>
+          <thead><tr><th>#</th><th>링크</th><th>유형</th><th>상태</th><th>확인한 내용</th></tr></thead>
+          <tbody id="sourceTable"></tbody>
+        </table>
+      </div>
+    </details>
+    <p class="footnote">인스타그램·스레드는 로그인 없이 브라우저로 열어 캡션을 확인했습니다. 사진·영상의 화면 내용 전체를 본 것은 아니며, 확인한 범위만 카드에 반영했습니다. 카드의 참고 링크는 모두 실제 접속을 확인한 주소입니다.</p>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <p><b>인생이라는 필름</b> — 쿠사리님을 위한 사진 촬영 필드 가이드</p>
+    <p class="footer__small">기법은 사진 교육 자료와 촬영자들의 공개 기록을 정리한 것입니다. 기종·OS 버전에 따라 메뉴 이름이 다를 수 있습니다.</p>
+  </div>
+</footer>
+
+<div class="modal" id="modal" hidden>
+  <div class="modal__backdrop" data-close="1"></div>
+  <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+    <button class="modal__close" id="modalClose" type="button" aria-label="닫기">✕</button>
+    <div class="modal__viewer">
+      <div class="vf">
+        <div class="vf__stage" id="mStage"></div>
+        <div class="vf__bar">
+          <div class="vf__toggle" role="group" aria-label="보정 예시 전환">
+            <button type="button" id="mBefore" class="on">Before · 아쉬운 예</button>
+            <button type="button" id="mAfter">After · 인생샷</button>
+          </div>
+          <button type="button" class="vf__grid" id="mGrid" aria-pressed="false">삼분할선 <span>OFF</span></button>
+        </div>
+      </div>
+      <p class="vf__hint" id="mHint">두 상태를 번갈아 눌러 무엇이 달라지는지 비교해 보세요.</p>
+      <div class="vf__progress">
+        <div class="vf__progress-top"><span>현장 체크</span><b><span id="mProgressN">0</span> / <span id="mProgressT">3</span></b></div>
+        <div class="vf__progress-bar"><i id="mProgressBar"></i></div>
+        <p class="vf__progress-note">체크한 항목은 이 기기에 저장됩니다.</p>
+      </div>
+      <div class="vf__related" id="mRelated"></div>
+    </div>
+    <div class="modal__body">
+      <div class="modal__head">
+        <p class="modal__cat" id="mCat"></p>
+        <h2 id="mTitle"></h2>
+        <p class="modal__principle" id="mPrinciple"></p>
+      </div>
+      <div class="modal__badges" id="mBadges"></div>
+      <section class="mblock">
+        <h3>3단계 따라하기</h3>
+        <ol id="mSteps"></ol>
+      </section>
+      <section class="mblock mblock--warn">
+        <h3>흔한 실패 &amp; 피할 점</h3>
+        <ul id="mFails"></ul>
+      </section>
+      <section class="mblock">
+        <h3>현장 체크리스트</h3>
+        <ul class="checklist" id="mChecks"></ul>
+        <p class="mblock__note">체크 상태는 이 기기에 저장됩니다.</p>
+      </section>
+      <section class="mblock">
+        <h3>출처 · 참고</h3>
+        <ul class="srcList" id="mSources"></ul>
+      </section>
+      <div class="modal__foot">
+        <button class="btn btn--ghost btn--small" id="mFav" type="button">★ 스크랩</button>
+        <div class="modal__nav">
+          <button class="btn btn--ghost btn--small" id="mPrev" type="button">← 이전</button>
+          <button class="btn btn--ghost btn--small" id="mNext" type="button">다음 →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="diagrams.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
