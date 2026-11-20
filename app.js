@@ -276,8 +276,8 @@
 
   /* ── 히어로 필름 스트립 ───────────────── */
   const HERO_FRAMES = [
-    { photo: 'traveler-viewpoint', pos: '62% 50%', no: '16', cap: '35mm · 1/500s' },
-    { photo: 'sunset-silhouette', pos: '55% 62%', no: '23', cap: '50mm · 1/1600s' },
+    { photo: 'traveler-viewpoint', pos: '95% 50%', no: '16', cap: '35mm · 1/500s' },
+    { photo: 'sunset-silhouette', pos: '100% 55%', no: '23', cap: '50mm · 1/1600s' },
     { photo: 'night-city', pos: '50% 46%', no: '31', cap: '24mm · 1/4s' }
   ];
 
