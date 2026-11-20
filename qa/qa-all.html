@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"/>
+<style>
+body{margin:0;background:#e9e1d2;font-family:sans-serif}
+.wrap{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:8px}
+.f{background:#fff;border-radius:6px;overflow:hidden}
+.f svg{display:block;width:100%;height:auto;aspect-ratio:4/3}
+.f b{display:block;font-size:9px;padding:3px 4px;color:#333;font-weight:600}
+</style></head><body>
+<div class="wrap" id="w"></div>
+<script src="../data.js"></script><script src="../diagrams.js"></script>
+<script>
+const w=document.getElementById('w');
+w.innerHTML=CARDS.map(c=>`<div class="f"><b>${c.id}</b>${(function(){const f=DIAGRAMS[c.diagram];return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">${f({after:true,grid:false})}</svg>`})()}</div>`).join('');
+</script></body></html>
