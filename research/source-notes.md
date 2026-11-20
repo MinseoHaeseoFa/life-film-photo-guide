@@ -97,3 +97,26 @@
 - 캐럿 블로그 인물 구도 삼분할 https://carat.im/blog/portrait-photography-composition-tips
 
 ※ Adobe 문서 2건은 서버가 403을 반환해 링크에서 제외.
+
+## 100장 확장분(61장) 추가 출처 — 2026-11-20 직접 열어 확인
+
+| 출처 | 확인한 내용 |
+| --- | --- |
+| 한겨레 「폰카로 찍은 설경이 안 이쁘다면 이렇게」 https://www.hani.co.kr/arti/culture/culture_general/1182637.html | 설경 EV +1~2 유지, 플래시로 눈송이·빛망울, 색 대비는 프레임 속 색 수가 적을수록 효과적, 초광각 0.5x/망원 3x·5x 활용, 로우앵글 눈더미, 최신 폰 접사 자동 전환 3~5cm |
+| 한겨레 「여행 인생 사진 찍고 싶다면 격자를 활용하라」 https://www.hani.co.kr/arti/specialsection/esc_section/1187143.html | 지평선을 격자 가로선에 1:2/2:1, 지상은 하단선·고지대는 상단선, 인물은 좌우 세로선, 시선 방향 여백, 배경 먼저 정하고 인물 투입 |
+| 한겨레 「영화 포스터 같은 인물 사진」 https://www.hani.co.kr/arti/culture/culture_general/1176336.html | 인물 모드 30cm~2m, 거리 안내 메시지, F값·블러 숫자, 촬영 후 초점·흐림 조정, 두 손가락 줌 미지원 |
+| 한겨레 「스마트폰으로 휴가 사진 잘 찍는 14가지 방법」 https://www.hani.co.kr/arti/culture/travel/704472.html | 순광·사광·역광 차이, 새벽·일몰, 폰을 뒤집어 앵글 낮추기, 음식 역광 하레이션, 그늘 활용, 클로즈업, 국수는 옆·피자는 위 |
+| 뉴스웍스 「감성 가득한 한 컷」 https://www.newsworks.co.kr/news/articleView.html?idxno=794383 | ISO=센서 감도(높으면 노이즈), 조리개=빛의 양+피사계 심도, 셔터 속도=정지/흐름, 인물모드·야간모드 원리 |
+| 온더투어 「장소별 스마트폰 구도 정리」 https://www.onthetour.co.kr/news/articleView.html?idxno=4318 | 도심 대칭·반사, 매직아워, 야간모드 손떨림, 플래시 2~3m 한계, 바다 수평선 1/3·EV 낮추기·3~5배 줌, 산에 사람 작게, 전경 배치, 가로/세로 구도, 같은 자리 여러 장 |
+| 온더투어 「스마트폰 하나로 도시 야경 담는 법」 https://www.onthetour.co.kr/news/articleView.html?idxno=5233 | ISO 400·1초 기준, ISO 800 + 짧은 셔터, 프로 모드 WB로 나트륨등 보정, 2초 타이머·팔꿈치 자세, 이어폰·워치 리모컨, RAW/ProRAW, 야간 모드 시간 선택, 라이브 포토와 야간 모드 충돌 |
+| 삼성디스플레이 뉴스룸 「야경 사진 찍는 법」 https://news.samsungdisplay.com/16640 | 매직아워 해 뜨기 전·진 후 30분, 삼각대 기본, 자동 모드 노출 강제 상승→노이즈, 프로 모드 셔터 1/20 vs 1초·10초, ISO 100 고정, WB 2300K/10000K 차이 |
+| 캐논코리아 원포인트레슨 「인물 사진 구도 잡기」 https://kr.canon/magazine/detail/4745 | 3분할 상단 교차점에 눈, 수평선을 목 아래로, 사선 구도는 단순 배경, 시선 방향 여백, 중앙 배치는 좌우 대칭일 때 |
+| Jamie B Studio 「자연스러운 인물 사진 포즈」 https://jamiebphotography.com/natural-poses/ | 몸통 30~45도, 체중 이동, 손에 역할, 턱 1cm 앞, 렌즈/비키는 시선, 질문으로 웃음 유도, 배경 선 확인, 벽·난간 한쪽만 기대기, 세 걸음 걷기, 거리와 얼굴 비례 |
+| FoodShot AI 「핸드폰으로 음식 사진 잘 찍는 법 8단계」 https://foodshot.ai/ko/blog/how-to-take-food-photos-phone | 창문 60~90cm 측광, 천장등 끄기, 흰 종이 반사판, 접시 닦기, 소품 1~2개, 45도·아이레벨·오버헤드, 홀수 배치, 10~15장, 크롭·밝기·채도·선명도 보정 |
+| Digital Photography School 「10 More Food Photography Tips」 https://digital-photography-school.com/food-photography-tips/ | 오버헤드는 깊게·로우앵글은 얕게, 먹다 만 흔적의 매력, 창가 빛 15도씩 돌려보기 |
+| Apple 지원 「iPhone 야간 모드」 https://support.apple.com/en-us/102519 | 야간 모드 자동 켜짐, 노출 시간 선택(최대 연장), 삼각대 권장, 십자선 정렬, 라이브 포토·플래시를 켜면 야간 모드 꺼짐 |
+| Apple 지원 「iPhone 인물 사진 모드」 https://support.apple.com/en-us/102398 | 스튜디오·컨투어·스테이지·스테이지 모노·하이키 모노 5종, 촬영 후 심도·조명 강도 조절 |
+| Apple 지원 「iPhone 카메라 도구로 구도 잡기」 https://support.apple.com/guide/iphone/use-camera-tools-iph3dc593597/ios | 탭으로 초점 이동, 초점 영역 옆 드래그로 노출 조정 |
+| iMore 「How to use Night mode」 https://www.imore.com/iphone/iphone-photography-basics-how-to-use-night-mode | 야간 노출 1~30초, Max 설정, 움직임 감지 십자선, 모션 블러로 차량·관람차 궤적, 야간 인물 모드는 1~2초 권장 |
+
+※ 위 17건은 2026-11-20 본문을 직접 열어 읽고, 그 안에 적힌 범위의 사실만 카드에 옮겼습니다. 본문에 없는 수치나 사례는 추가하지 않았습니다.

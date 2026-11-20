@@ -1,4 +1,4 @@
-/* 인생이라는 필름 — 앱 로직 */
+/* 인생이라는 필름 — 앱 로직 (실사 사진 + 뷰파인더 HUD) */
 (function () {
   'use strict';
 
@@ -20,11 +20,82 @@
     favs: new Set(store.get('lifefilm:favs', [])),
     filtered: [],
     modalCard: null,
-    after: false,
-    grid: false
+    after: true,
+    grid: true
   };
 
-  /* ── 초기 렌더 ───────────────────────── */
+  /* ── 사진 · 뷰파인더 ─────────────────── */
+  const CAT_ORDER = Object.fromEntries(CATS.map((c, i) => [c.id, i]));
+  CARDS.sort((a, b) => (CAT_ORDER[a.cat[0]] ?? 99) - (CAT_ORDER[b.cat[0]] ?? 99));
+  function mediaFor(card) {
+    return MEDIA[card.id] || { photo: 'horizon-sea', pos: '50% 50%', exif: ['35mm', 'f/2.8', 'ISO 100', '1/250s', 'EV 0', 'WB 5500K'], before: { t: 'none', f: 'none', tone: 'none', warn: 'none', note: '' }, after: { note: '', focus: [50, 50], guides: ['thirds'] } };
+  }
+  function photoFor(card) {
+    const m = mediaFor(card);
+    return PHOTOS[m.photo] || PHOTOS['horizon-sea'];
+  }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+
+  const CORNERS = ['tl', 'tr', 'bl', 'br'].map(c => `<span class="hud__corner hud__corner--${c}"></span>`).join('');
+  const THIRDS_SVG = `<svg class="hud__thirds" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+      <g fill="none" stroke="rgba(255,255,255,.62)" stroke-width=".75" vector-effect="non-scaling-stroke">
+        <path d="M33.333 0V100M66.667 0V100M0 33.333H100M0 66.667H100"/></g></svg>`;
+  const DOTS = [[33.333, 33.333], [66.667, 33.333], [33.333, 66.667], [66.667, 66.667]]
+    .map(([x, y]) => `<span class="hud__dot" style="left:${x}%;top:${y}%"></span>`).join('');
+
+  /* 카드 썸네일용 사진 */
+  function thumbHTML(card, cls) {
+    const m = mediaFor(card), p = photoFor(card);
+    return `<span class="thumb ${cls || ''}">
+      <img class="thumb__img" src="${p.src}" width="${p.w}" height="${p.h}" alt="" loading="lazy" decoding="async" style="object-position:${m.pos}">
+      <span class="thumb__grid" aria-hidden="true"></span>
+      ${CORNERS}
+    </span>`;
+  }
+
+  /* 모달 뷰파인더 스테이지 */
+  function shotHTML(card, isAfter) {
+    const m = mediaFor(card), p = photoFor(card);
+    const b = m.before, a = m.after;
+    const t = isAfter ? 'none' : (b.t || 'none');
+    const f = isAfter ? 'saturate(1.07) contrast(1.05) brightness(1.01)' : (b.f || 'none');
+    const tone = isAfter ? 'none' : (b.tone || 'none');
+    const [ex, ap, iso, sh, ev, wb] = m.exif;
+
+    const levelDeg = (() => {
+      const mm = /rotate\((-?[\d.]+)deg\)/.exec(b.t || '');
+      if (mm) return parseFloat(mm[1]);
+      return -4.2;
+    })();
+    const levelY = a.focus ? a.focus[1] : 50;
+
+    let guides = '';
+    if (state.grid) guides += THIRDS_SVG;
+    if (isAfter && (a.guides || []).indexOf('dots') >= 0) guides += DOTS;
+    if (!isAfter && b.warn === 'center') guides += `<span class="hud__center"></span>`;
+    if (!isAfter && b.warn === 'crop') guides += `<span class="hud__crop"></span>`;
+    if (!isAfter && b.warn === 'level') guides += `<span class="hud__warnline" style="transform:translate(-50%,-50%) rotate(${levelDeg}deg)"><b>${levelDeg.toFixed(1)}°</b></span>`;
+    if (isAfter && (a.guides || []).indexOf('level') >= 0) guides += `<span class="hud__level" style="top:${levelY}%"><b>0.0°</b></span>`;
+    if (isAfter) guides += `<span class="hud__focus" style="left:${a.focus[0]}%;top:${a.focus[1]}%"></span>`;
+
+    return `<div class="shot ${isAfter ? 'shot--after' : 'shot--before'}">
+      <img class="shot__img" src="${p.src}" width="${p.w}" height="${p.h}" alt="${esc(p.alt)}"
+           decoding="async" style="object-position:${m.pos};transform:${t};filter:${f}">
+      <span class="shot__tone tone--${tone}"></span>
+      <span class="shot__vign"></span>
+      <span class="shot__grain"></span>
+      <div class="hud">
+        ${CORNERS}${guides}
+        <span class="hud__chip hud__chip--state">${isAfter ? 'AFTER · 인생샷' : 'BEFORE · 아쉬운 예'}</span>
+        <span class="hud__chip hud__chip--lens">${ex} · ${ap}</span>
+        <span class="hud__chip hud__chip--iso">${iso} · ${sh}</span>
+        <span class="hud__chip hud__chip--ev">${ev} · ${wb}</span>
+        <span class="hud__note">${esc(isAfter ? a.note : b.note)}</span>
+      </div>
+    </div>`;
+  }
+
+  /* ── 필터 UI ─────────────────────────── */
   function renderChips() {
     const wrap = $('#catChips');
     wrap.innerHTML = CATS.map(c => {
@@ -51,16 +122,8 @@
     });
   }
 
-  function svgFor(card, opts) {
-    const fn = DIAGRAMS[card.diagram];
-    const inner = fn ? fn(opts || {}) : '';
-    const g = (opts && opts.grid) ? grid() : '';
-    return `<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${escapeAttr(card.title)} 촬영 구도 예시">${inner}${g}</svg>`;
-  }
-  function escapeAttr(s) { return String(s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
-
   function levelDots(n) {
-    return `<span class="lvl" title="${LEVEL_TXT[n]}">${[1, 2, 3].map(i => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}<em style="font-style:normal;margin-left:4px;font-size:10.5px">${LEVEL_TXT[n]}</em></span>`;
+    return `<span class="lvl" title="${LEVEL_TXT[n]}">${[1, 2, 3].map(i => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}<em>${LEVEL_TXT[n]}</em></span>`;
   }
 
   function renderGrid() {
@@ -82,10 +145,13 @@
     state.filtered = list;
 
     const grid = $('#grid');
-    grid.innerHTML = list.map(c => `
-      <article class="card" tabindex="0" role="button" data-id="${c.id}" aria-label="${escapeAttr(c.title)} — ${escapeAttr(c.tagline)}">
+    grid.innerHTML = list.map(c => {
+      const m = mediaFor(c);
+      return `
+      <article class="card" tabindex="0" role="button" data-id="${c.id}" aria-label="${esc(c.title)} — ${esc(c.tagline)}">
         <div class="card__thumb">
-          ${svgFor(c, { after: true, grid: false })}
+          ${thumbHTML(c)}
+          <span class="card__lens">${m.exif[0]} · ${m.exif[3]}</span>
           <button type="button" class="card__fav" data-fav="${c.id}" aria-pressed="${state.favs.has(c.id)}" aria-label="스크랩">${state.favs.has(c.id) ? '★' : '☆'}</button>
         </div>
         <div class="card__body">
@@ -98,7 +164,8 @@
           <p>${c.tagline}</p>
           <span class="card__go">뷰파인더로 보기 →</span>
         </div>
-      </article>`).join('');
+      </article>`;
+    }).join('');
 
     $('#empty').hidden = list.length > 0;
     $('#resultCount').innerHTML = `<b>${list.length}</b> / ${CARDS.length}개 카드`;
@@ -128,8 +195,8 @@
     if (!card) return;
     lastFocus = document.activeElement;
     state.modalCard = card;
-    state.after = false;
-    state.grid = false;
+    state.after = true;
+    state.grid = true;
     $('#modal').hidden = false;
     document.body.style.overflow = 'hidden';
 
@@ -148,13 +215,10 @@
     $('#mFav').setAttribute('aria-pressed', String(state.favs.has(card.id)));
     $('#mFav').textContent = state.favs.has(card.id) ? '★ 스크랩됨' : '★ 스크랩';
 
-    renderRelated(card);
+    renderRelatedPlaceholder();
+    syncToggle();
     updateViewer();
     updateProgress();
-    $('#mGrid').setAttribute('aria-pressed', 'false');
-    $('#mGrid').querySelector('span').textContent = 'OFF';
-    $('#mBefore').classList.add('on');
-    $('#mAfter').classList.remove('on');
 
     const idx = state.filtered.findIndex(c => c.id === card.id);
     $('#mPrev').disabled = idx <= 0;
@@ -162,26 +226,29 @@
     $('#mPrev').style.opacity = idx <= 0 ? .4 : 1;
     $('#mNext').style.opacity = (idx < 0 || idx >= state.filtered.length - 1) ? .4 : 1;
 
-    $('#modalPanelScroll') // noop guard
     $('#modal .modal__panel').scrollTop = 0;
     setTimeout(() => $('#modalClose').focus(), 30);
   }
 
-  function updateViewer() {
-    const c = state.modalCard; if (!c) return;
-    $('#mStage').innerHTML = svgFor(c, { after: state.after, grid: state.grid });
-    $('#mHint').textContent = c.diagram === 'crop'
-      ? '점선 위치를 비교해 보세요. 관절이 아니라 그 사이에서 잘라야 자연스럽습니다.'
-      : '두 상태를 번갈아 눌러 무엇이 달라지는지 비교해 보세요.';
+  function syncToggle() {
+    $('#mAfter').classList.toggle('on', state.after);
+    $('#mBefore').classList.toggle('on', !state.after);
+    $('#mGrid').setAttribute('aria-pressed', String(state.grid));
+    $('#mGrid').querySelector('span').textContent = state.grid ? 'ON' : 'OFF';
   }
 
-  function renderRelated(card) {
-    const rel = CARDS.filter(c => c.id !== card.id && c.cat.some(x => card.cat.includes(x))).slice(0, 3);
-    $('#mRelated').innerHTML = rel.map(c => `
-      <button type="button" data-rel="${c.id}" aria-label="관련 카드: ${escapeAttr(c.title)}">
-        ${svgFor(c, { after: true, grid: false })}<span>${c.title}</span>
-      </button>`).join('');
+  function updateViewer() {
+    const c = state.modalCard; if (!c) return;
+    const stage = $('#mStage');
+    stage.innerHTML = shotHTML(c, state.after);
+    syncToggle();
+    const m = mediaFor(c);
+    $('#mHint').textContent = state.after
+      ? `교정 후 · ${m.after.note}`
+      : `흔한 실패 · ${m.before.note}`;
   }
+
+  function renderRelatedPlaceholder() { /* 관련 카드 추천 영역은 레이아웃 정리로 제거했습니다. */ }
 
   function updateProgress() {
     if (!state.modalCard) return;
@@ -207,10 +274,22 @@
     openModal(state.filtered[n]);
   }
 
-  /* ── 히어로 필름 스트립 · 출처 표 ─────── */
+  /* ── 히어로 필름 스트립 ───────────────── */
+  const HERO_FRAMES = [
+    { photo: 'traveler-viewpoint', pos: '62% 50%', no: '16', cap: '35mm · 1/500s' },
+    { photo: 'sunset-silhouette', pos: '55% 62%', no: '23', cap: '50mm · 1/1600s' },
+    { photo: 'night-city', pos: '50% 46%', no: '31', cap: '24mm · 1/4s' }
+  ];
+
   function renderHero() {
-    const picks = ['selfie-height', 'horizon', 'puddle'].map(id => CARDS.find(c => c.id === id)).filter(Boolean);
-    $('#heroFrames').innerHTML = picks.map(c => `<div class="frame">${svgFor(c, { after: true, grid: false })}</div>`).join('');
+    $('#heroFrames').innerHTML = HERO_FRAMES.map(f => {
+      const p = PHOTOS[f.photo];
+      return `<div class="frame">
+        <img src="${p.src}" width="${p.w}" height="${p.h}" alt="" style="object-position:${f.pos}" fetchpriority="high" decoding="async">
+        <span class="frame__no">${f.no}</span>
+        <span class="frame__cap">${f.cap}</span>
+      </div>`;
+    }).join('');
   }
 
   const LINK_ROWS = [
@@ -292,18 +371,11 @@
     $('#modalClose').addEventListener('click', closeModal);
     $('#modal').addEventListener('click', e => { if (e.target.dataset.close) closeModal(); });
 
-    $('#mBefore').addEventListener('click', () => {
-      state.after = false;
-      $('#mBefore').classList.add('on'); $('#mAfter').classList.remove('on'); updateViewer();
-    });
-    $('#mAfter').addEventListener('click', () => {
-      state.after = true;
-      $('#mAfter').classList.add('on'); $('#mBefore').classList.remove('on'); updateViewer();
-    });
+    $('#mBefore').addEventListener('click', () => { state.after = false; updateViewer(); });
+    $('#mAfter').addEventListener('click', () => { state.after = true; updateViewer(); });
     $('#mGrid').addEventListener('click', () => {
       state.grid = !state.grid;
-      $('#mGrid').setAttribute('aria-pressed', String(state.grid));
-      $('#mGrid').querySelector('span').textContent = state.grid ? 'ON' : 'OFF';
+      syncToggle();
       updateViewer();
     });
 
@@ -316,10 +388,6 @@
     });
 
     $('#mFav').addEventListener('click', () => { if (state.modalCard) toggleFav(state.modalCard.id); });
-    $('#mRelated').addEventListener('click', e => {
-      const b = e.target.closest('[data-rel]');
-      if (b) openModal(CARDS.find(c => c.id === b.dataset.rel));
-    });
     $('#mPrev').addEventListener('click', () => step(-1));
     $('#mNext').addEventListener('click', () => step(1));
 

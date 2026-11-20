@@ -53,7 +53,7 @@ const SRC = {
 const CARDS = [
   /* ── 폰 카메라 세팅 ───────────────────────────── */
   {
-    id: 'grid-level', cat: ['setting'], level: 1, lens: ['1x'], diagram: 'level',
+    id: 'grid-level', cat: ['setting'], level: 1, lens: ['1x'],
     title: '격자 켜고 수평부터 맞추기',
     tagline: '사진이 어딘가 불안해 보이는 이유는 대개 기울어진 수평선입니다.',
     keywords: '격자 안내선 수평 수직 기울기 똑바로 수평계',
@@ -69,7 +69,7 @@ const CARDS = [
     sources: [SRC.etnews, SRC.kaa24]
   },
   {
-    id: 'lens-button', cat: ['setting'], catNote: '세팅', level: 1, lens: ['0.5x', '1x', '3x'], diagram: 'zoom',
+    id: 'lens-button', cat: ['setting'], catNote: '세팅', level: 1, lens: ['0.5x', '1x', '3x'],
     title: '손가락 줌 말고, 렌즈 버튼',
     tagline: '0.5 · 1 · 3 숫자를 직접 누르면 화질이 살아납니다.',
     keywords: '줌 배율 렌즈 버튼 광각 망원 화질 3.9배 4배',
@@ -85,7 +85,7 @@ const CARDS = [
     sources: [SRC.hani_zoom, SRC.kaa25]
   },
   {
-    id: 'exposure', cat: ['setting'], level: 1, lens: ['1x'], diagram: 'exposure',
+    id: 'exposure', cat: ['setting'], level: 1, lens: ['1x'],
     title: '터치한 뒤 밝기 슬라이더',
     tagline: '얼굴을 터치하고 옆 슬라이더를 살짝 내리면, 하늘도 얼굴도 살아납니다.',
     keywords: '노출 밝기 보정 역광 하이라이트 슬라이더 AE AF 고정',
@@ -101,7 +101,7 @@ const CARDS = [
     sources: [SRC.hani_zoom, SRC.haomin]
   },
   {
-    id: 'timer', cat: ['setting', 'night'], level: 1, lens: ['1x'], diagram: 'timer',
+    id: 'timer', cat: ['setting', 'night'], level: 1, lens: ['1x'],
     title: '3초 타이머로 손 떨림 지우기',
     tagline: '셔터를 누르는 그 손가락 하나가 사진을 흔듭니다.',
     keywords: '타이머 셔터 흔들림 삼각대 고정 야간 긴 노출',
@@ -117,7 +117,7 @@ const CARDS = [
     sources: [SRC.sd, SRC.tour]
   },
   {
-    id: 'grading', cat: ['setting', 'cafe'], level: 2, lens: ['1x'], diagram: 'grading',
+    id: 'grading', cat: ['setting', 'cafe'], level: 2, lens: ['1x'],
     title: '프로 모드 색감 손잡이 5개',
     tagline: '대비·하이라이트·채도·틴트·그림자, 이 다섯 개면 봄 색이 살아납니다.',
     keywords: '프로모드 색감 보정 대비 채도 틴트 그림자 벚꽃 필터',
@@ -135,7 +135,7 @@ const CARDS = [
 
   /* ── 혼자 여행·셀카봉 ─────────────────────────── */
   {
-    id: 'selfie-height', cat: ['solo'], level: 1, lens: ['1x'], diagram: 'selfie',
+    id: 'selfie-height', cat: ['solo'], level: 1, lens: ['1x'],
     title: '셀카봉은 눈높이보다 살짝 위',
     tagline: '렌즈가 눈보다 조금 위에 오면 얼굴이 갸름해지고 배경이 넓어집니다.',
     keywords: '셀카봉 셀피 각도 롱셀카봉 얼굴 갸름 배경 여행',
@@ -151,7 +151,7 @@ const CARDS = [
     sources: [SRC.haruw, SRC.dolmen]
   },
   {
-    id: 'selfie-place', cat: ['solo'], level: 1, lens: ['1x'], diagram: 'place',
+    id: 'selfie-place', cat: ['solo'], level: 1, lens: ['1x'],
     title: '셀카봉이 없으면 난간이 삼각대',
     tagline: '난간·벽·가방에 기대고 3초 타이머. 셀카봉보다 흔들림이 적습니다.',
     keywords: '삼각대 없이 난간 벽 가방 고정 셀프 타이머 혼자',
@@ -167,7 +167,7 @@ const CARDS = [
     sources: [SRC.solo1, SRC.jetlag]
   },
   {
-    id: 'selfie-marker', cat: ['solo'], level: 2, lens: ['1x'], diagram: 'marker',
+    id: 'selfie-marker', cat: ['solo'], level: 2, lens: ['1x'],
     title: '물병으로 내 자리를 미리 표시',
     tagline: '빈 프레임에 물병을 세워 두고 찍어 보고, 그 자리에 내가 들어갑니다.',
     keywords: '자리 표시 마커 테스트 컷 혼자 구도 잡기',
@@ -183,7 +183,7 @@ const CARDS = [
     sources: [SRC.jetlag]
   },
   {
-    id: 'backview', cat: ['solo', 'scene'], level: 1, lens: ['1x'], diagram: 'backview',
+    id: 'backview', cat: ['solo', 'scene'], level: 1, lens: ['1x'],
     title: '뒤태 구도 — 풍경이 주인공, 나는 조연',
     tagline: '뒷모습으로 서면 표정 부담 없이 여행의 분위기가 남습니다.',
     keywords: '뒤태 뒷모습 여행 감성 풍경 인물 실루엣',
@@ -199,7 +199,7 @@ const CARDS = [
     sources: [SRC.solo1, SRC.mytravel]
   },
   {
-    id: 'walk-burst', cat: ['solo', 'pose'], level: 2, lens: ['1x'], diagram: 'walk',
+    id: 'walk-burst', cat: ['solo', 'pose'], level: 2, lens: ['1x'],
     title: '서 있지 말고, 걸어오다 한 컷',
     tagline: '멈춰 선 포즈보다 걷는 중간이 훨씬 자연스럽습니다.',
     keywords: '걷는 포즈 연속 촬영 자연스러움 움직임 버스트',
@@ -215,7 +215,7 @@ const CARDS = [
     sources: [SRC.jetlag, SRC.jamie]
   },
   {
-    id: 'ultrawide-selfie', cat: ['solo'], level: 2, lens: ['0.5x'], diagram: 'wide',
+    id: 'ultrawide-selfie', cat: ['solo'], level: 2, lens: ['0.5x'],
     title: '0.5x 초광각 셀카 — 얼굴은 꼭 중앙',
     tagline: '배경을 넓게 담는 대신, 얼굴이 가장자리로 가면 늘어납니다.',
     keywords: '초광각 0.5 광각 셀카 배경 여행 왜곡',
@@ -231,7 +231,7 @@ const CARDS = [
     sources: [SRC.mytravel, SRC.kaa25]
   },
   {
-    id: 'ratio', cat: ['solo', 'scene'], level: 2, lens: ['1x'], diagram: 'ratio',
+    id: 'ratio', cat: ['solo', 'scene'], level: 2, lens: ['1x'],
     title: '나와 배경, 1/3과 2/3의 배분',
     tagline: '인물을 키울지 풍경을 키울지 먼저 정하면 구도가 3초 만에 잡힙니다.',
     keywords: '비율 여백 인물 배경 구성 하단 배치 여행',
@@ -249,7 +249,7 @@ const CARDS = [
 
   /* ── 인물·포즈 ───────────────────────────────── */
   {
-    id: 'eye-thirds', cat: ['pose'], level: 1, lens: ['1x', '3x'], diagram: 'eye',
+    id: 'eye-thirds', cat: ['pose'], level: 1, lens: ['1x', '3x'],
     title: '눈을 위쪽 교차점에',
     tagline: '얼굴을 한가운데 두지 말고, 눈을 격자 교차점에 얹으세요.',
     keywords: '삼분할 삼등분 얼굴 눈 교차점 인물 구도',
@@ -265,7 +265,7 @@ const CARDS = [
     sources: [SRC.canon, SRC.stylezine]
   },
   {
-    id: 'hands', cat: ['pose'], level: 1, lens: ['1x', '3x'], diagram: 'hands',
+    id: 'hands', cat: ['pose'], level: 1, lens: ['1x', '3x'],
     title: '손에 할 일을 주기',
     tagline: '손이 어색하면 숨기지 말고, 옷깃·주머니·머리카락에 역할을 주세요.',
     keywords: '손 포즈 주머니 옷깃 머리카락 자연스러움',
@@ -281,7 +281,7 @@ const CARDS = [
     sources: [SRC.ava, SRC.jamie]
   },
   {
-    id: 'body-turn', cat: ['pose'], level: 2, lens: ['1x', '3x'], diagram: 'body',
+    id: 'body-turn', cat: ['pose'], level: 2, lens: ['1x', '3x'],
     title: '몸은 45도, 얼굴만 카메라로',
     tagline: '정면으로 딱 서면 증명사진, 45도로 틀면 인물사진이 됩니다.',
     keywords: '45도 각도 몸 틀기 체중 어깨 정면 인물',
@@ -297,7 +297,7 @@ const CARDS = [
     sources: [SRC.jamie, SRC.stylezine]
   },
   {
-    id: 'lean', cat: ['pose', 'solo'], level: 1, lens: ['1x', '3x'], diagram: 'lean',
+    id: 'lean', cat: ['pose', 'solo'], level: 1, lens: ['1x', '3x'],
     title: '벽·난간에 살짝 기대기',
     tagline: '몸을 맡길 곳이 있으면 손 둘 곳도, 사선도 저절로 생깁니다.',
     keywords: '기대기 벽 난간 사선 자세 어색함',
@@ -313,7 +313,7 @@ const CARDS = [
     sources: [SRC.ava, SRC.solo1]
   },
   {
-    id: 'frame-in-frame', cat: ['pose', 'scene'], level: 2, lens: ['1x', '3x'], diagram: 'frame',
+    id: 'frame-in-frame', cat: ['pose', 'scene'], level: 2, lens: ['1x', '3x'],
     title: '단풍·문틀을 액자로 쓰기',
     tagline: '앞쪽의 무언가로 테두리를 만들면 시선이 인물로 모입니다.',
     keywords: '프레임 속 프레임 액자 문 창문 나뭇가지 단풍',
@@ -329,7 +329,7 @@ const CARDS = [
     sources: [SRC.ig_uk, SRC.haomin]
   },
   {
-    id: 'space', cat: ['pose'], level: 2, lens: ['1x', '3x'], diagram: 'space',
+    id: 'space', cat: ['pose'], level: 2, lens: ['1x', '3x'],
     title: '시선이 향하는 쪽에 여백',
     tagline: '인물이 보는 방향을 비워 두면 사진에 이야기가 생깁니다.',
     keywords: '여백 시선 방향 네거티브 스페이스 감성 인물',
@@ -345,7 +345,7 @@ const CARDS = [
     sources: [SRC.canon, SRC.stylezine]
   },
   {
-    id: 'low-angle', cat: ['pose', 'solo'], level: 2, lens: ['0.5x', '1x'], diagram: 'low',
+    id: 'low-angle', cat: ['pose', 'solo'], level: 2, lens: ['0.5x', '1x'],
     title: '로우앵글로 다리 길게, 발끝 맞춤',
     tagline: '허리 높이에서 살짝 아래로. 발끝을 프레임에 남기면 비율이 살아납니다.',
     keywords: '로우앵글 다리 길게 전신 발끝 비율 광각',
@@ -361,7 +361,7 @@ const CARDS = [
     sources: [SRC.stylezine, SRC.gudo]
   },
   {
-    id: 'crop', cat: ['pose'], level: 1, lens: ['1x', '3x'], diagram: 'crop',
+    id: 'crop', cat: ['pose'], level: 1, lens: ['1x', '3x'],
     title: '관절에서 자르지 않기',
     tagline: '발목·무릎·팔꿈치가 프레임 끝에 걸리면 유난히 어색합니다.',
     keywords: '크롭 자르기 관절 전신 상반신 구도',
@@ -377,7 +377,7 @@ const CARDS = [
     sources: [SRC.clien, SRC.gudo]
   },
   {
-    id: 'portrait-mode', cat: ['pose', 'cafe'], level: 2, lens: ['3x'], diagram: 'bokeh',
+    id: 'portrait-mode', cat: ['pose', 'cafe'], level: 2, lens: ['3x'],
     title: '인물 모드 3x, 블러는 -5부터',
     tagline: '배경을 흐리면 인물이 살아납니다. 단, 너무 가까이 대면 인식하지 못합니다.',
     keywords: '인물사진 모드 아웃포커싱 배경 흐림 블러 소품 3배',
@@ -395,7 +395,7 @@ const CARDS = [
 
   /* ── 풍경·여행지 ─────────────────────────────── */
   {
-    id: 'horizon', cat: ['scene'], level: 1, lens: ['1x', '0.5x'], diagram: 'horizon',
+    id: 'horizon', cat: ['scene'], level: 1, lens: ['1x', '0.5x'],
     title: '수평선은 1/3에, 하늘은 2/3',
     tagline: '수평선을 한가운데 두면 사진이 두 동강 납니다.',
     keywords: '수평선 지평선 하늘 비율 1/3 풍경 바다',
@@ -411,7 +411,7 @@ const CARDS = [
     sources: [SRC.kaa24, SRC.mytravel]
   },
   {
-    id: 'leading', cat: ['scene'], level: 1, lens: ['1x', '0.5x'], diagram: 'leading',
+    id: 'leading', cat: ['scene'], level: 1, lens: ['1x', '0.5x'],
     title: '길·계단·난간으로 시선 끌기',
     tagline: '화면 안의 선이 주인공 쪽으로 모이면 사진에 깊이가 생깁니다.',
     keywords: '리딩 라인 유도선 길 계단 난간 깊이감 소실점',
@@ -427,7 +427,7 @@ const CARDS = [
     sources: [SRC.haomin, SRC.ig_uk]
   },
   {
-    id: 'symmetry', cat: ['scene'], level: 2, lens: ['1x', '0.5x'], diagram: 'symmetry',
+    id: 'symmetry', cat: ['scene'], level: 2, lens: ['1x', '0.5x'],
     title: '대칭과 반영 — 물안개·호수·물웅덩이',
     tagline: '좌우를 똑같이 나누면 사진이 조용하고 단단해집니다.',
     keywords: '대칭 반영 물안개 호수 건축 좌우 반사',
@@ -443,7 +443,7 @@ const CARDS = [
     sources: [SRC.haomin, SRC.ig_uk]
   },
   {
-    id: 'color-contrast', cat: ['scene'], level: 2, lens: ['1x', '3x'], diagram: 'color',
+    id: 'color-contrast', cat: ['scene'], level: 2, lens: ['1x', '3x'],
     title: '색 대비로 주인공 세우기',
     tagline: '같은 색 속에 다른 색 하나. 그게 사진의 주인공입니다.',
     keywords: '색 대비 보색 단풍 빨강 파랑 배경 주인공',
@@ -459,7 +459,7 @@ const CARDS = [
     sources: [SRC.ig_uk]
   },
   {
-    id: 'eye-level', cat: ['scene'], level: 2, lens: ['1x', '0.5x'], diagram: 'height',
+    id: 'eye-level', cat: ['scene'], level: 2, lens: ['1x', '0.5x'],
     title: '눈높이를 바꾸면 같은 곳도 새 풍경',
     tagline: '서서 찍은 사진은 늘 같습니다. 앉아 보거나 올려다보세요.',
     keywords: '시선 높이 앵글 로우 하이 새로운 구도 풍경',
@@ -475,7 +475,7 @@ const CARDS = [
     sources: [SRC.ig_uk, SRC.haomin]
   },
   {
-    id: 'backlight', cat: ['scene', 'night'], level: 2, lens: ['1x', '3x'], diagram: 'backlight',
+    id: 'backlight', cat: ['scene', 'night'], level: 2, lens: ['1x', '3x'],
     title: '역광 — 피하지 말고 노출만 잡기',
     tagline: '해를 등지고 서면 윤곽이 빛나고, 잎은 투명하게 빛납니다.',
     keywords: '역광 윤곽 빛 테두리 단풍 실루엣 골든아워 노출',
@@ -493,7 +493,7 @@ const CARDS = [
 
   /* ── 카페·음식 ───────────────────────────────── */
   {
-    id: 'food-window', cat: ['cafe'], level: 1, lens: ['1x'], diagram: 'window',
+    id: 'food-window', cat: ['cafe'], level: 1, lens: ['1x'],
     title: '창가 옆빛, 천장등은 끄기',
     tagline: '빛은 한 방향에서만. 옆에서 들어오면 질감이 살아납니다.',
     keywords: '음식 카페 창가 측광 옆빛 조명 그림자',
@@ -509,7 +509,7 @@ const CARDS = [
     sources: [SRC.foodshot, SRC.sixone]
   },
   {
-    id: 'food-overhead', cat: ['cafe'], level: 1, lens: ['1x'], diagram: 'overhead',
+    id: 'food-overhead', cat: ['cafe'], level: 1, lens: ['1x'],
     title: '탑뷰 90도 — 접시를 격자에 나란히',
     tagline: '폰을 테이블과 평행하게. 접시 테두리가 화면 선과 나란해야 합니다.',
     keywords: '탑뷰 플랫레이 위에서 음식 각도 90도',
@@ -525,7 +525,7 @@ const CARDS = [
     sources: [SRC.foodshot, SRC.sixone]
   },
   {
-    id: 'food-side', cat: ['cafe'], level: 2, lens: ['1x', '3x'], diagram: 'side',
+    id: 'food-side', cat: ['cafe'], level: 2, lens: ['1x', '3x'],
     title: '눈높이에서 층과 단면',
     tagline: '버거·케이크·라떼는 높이가 정보입니다. 컵 높이까지 내려가세요.',
     keywords: '음식 눈높이 단면 층 케이크 버거 음료',
@@ -541,7 +541,7 @@ const CARDS = [
     sources: [SRC.sixone, SRC.foodshot]
   },
   {
-    id: 'food-macro', cat: ['cafe'], level: 2, lens: ['0.5x', '1x'], diagram: 'macro',
+    id: 'food-macro', cat: ['cafe'], level: 2, lens: ['0.5x', '1x'],
     title: '접사 — 3~5cm까지 다가가기',
     tagline: '질감이 주인공일 때는 렌즈를 거의 대고 찍습니다.',
     keywords: '접사 매크로 질감 꽃 디저트 근접 초광각',
@@ -559,7 +559,7 @@ const CARDS = [
 
   /* ── 야경·역광·감성 ───────────────────────────── */
   {
-    id: 'puddle', cat: ['night'], level: 2, lens: ['0.5x', '1x'], diagram: 'puddle',
+    id: 'puddle', cat: ['night'], level: 2, lens: ['0.5x', '1x'],
     title: '물웅덩이 반영샷',
     tagline: '비 온 뒤가 기회입니다. 폰을 뒤집어 렌즈를 물에 가까이.',
     keywords: '물웅덩이 반영 비 오는 날 거리 감성 광각',
@@ -575,7 +575,7 @@ const CARDS = [
     sources: [SRC.th_donggi]
   },
   {
-    id: 'rain-streak', cat: ['night'], level: 3, lens: ['3x'], diagram: 'rain',
+    id: 'rain-streak', cat: ['night'], level: 3, lens: ['3x'],
     title: '빗줄기: 1/50초 vs 1/350초',
     tagline: '셔터 하나로 빗줄기가 흐르거나 멈춥니다.',
     keywords: '비 빗줄기 셔터스피드 망원 프로모드 감성',
@@ -591,7 +591,7 @@ const CARDS = [
     sources: [SRC.ig_junny_rain]
   },
   {
-    id: 'night-city', cat: ['night'], level: 3, lens: ['1x'], diagram: 'nightcity',
+    id: 'night-city', cat: ['night'], level: 3, lens: ['1x'],
     title: '야경은 ISO 낮게, 셔터 길게',
     tagline: '밝게 찍으려 하지 말고, 고정하고 기다리세요.',
     keywords: '야경 야간모드 나이트 ISO 셔터 장노출 도시',
@@ -607,7 +607,7 @@ const CARDS = [
     sources: [SRC.tour, SRC.sd]
   },
   {
-    id: 'fireworks', cat: ['night'], level: 3, lens: ['1x'], diagram: 'fireworks',
+    id: 'fireworks', cat: ['night'], level: 3, lens: ['1x'],
     title: '불꽃놀이는 ND16 · ISO50 · 2초',
     tagline: '불꽃이 터지는 순간이 아니라, 터지기 시작할 때 누릅니다.',
     keywords: '불꽃놀이 불꽃 축제 장노출 ND 필터 Expert RAW',
@@ -623,7 +623,7 @@ const CARDS = [
     sources: [SRC.ig_junny_fire]
   },
   {
-    id: 'light-trail', cat: ['night'], level: 3, lens: ['1x'], diagram: 'trail',
+    id: 'light-trail', cat: ['night'], level: 3, lens: ['1x'],
     title: '차량 불빛 궤적 만들기',
     tagline: '2초 이상 열어 두면 차가 선이 되어 지나갑니다.',
     keywords: '라이트 트레일 차량 궤적 장노출 도로 야경',
@@ -639,7 +639,7 @@ const CARDS = [
     sources: [SRC.ig_kf, SRC.tour]
   },
   {
-    id: 'milkyway', cat: ['night'], level: 3, lens: ['1x'], diagram: 'milky',
+    id: 'milkyway', cat: ['night'], level: 3, lens: ['1x'],
     title: '은하수 — 천체 사진 모드로 12분',
     tagline: '어두운 곳 + 삼각대 + 기다림. 이 셋이 전부입니다.',
     keywords: '은하수 별 사진 천체 Expert RAW 장노출 고성',
@@ -655,7 +655,7 @@ const CARDS = [
     sources: [SRC.ig_junny_star, SRC.yt_stars]
   },
   {
-    id: 'star-field', cat: ['night'], level: 3, lens: ['1x'], diagram: 'stars',
+    id: 'star-field', cat: ['night'], level: 3, lens: ['1x'],
     title: '별 사진 — ISO 3200 · 15초 · 수동 초점',
     tagline: '초점을 자동에 두면 별은 뭉개집니다. 손으로 맞추세요.',
     keywords: '별 사진 프로모드 ISO3200 15초 수동 초점 은하수',
@@ -671,7 +671,7 @@ const CARDS = [
     sources: [SRC.yt_stars, SRC.ig_junny_star]
   },
   {
-    id: 'sunset', cat: ['night', 'scene'], level: 2, lens: ['1x', '3x'], diagram: 'sunset',
+    id: 'sunset', cat: ['night', 'scene'], level: 2, lens: ['1x', '3x'],
     title: '노을은 프로 모드로 색을 붙잡기',
     tagline: '자동 모드는 노을 색을 회색 쪽으로 끌어내리기 쉽습니다. 화이트밸런스를 올려 보세요.',
     keywords: '노을 일몰 석양 프로모드 화이트밸런스 ISO 셔터',

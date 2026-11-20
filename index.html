@@ -31,13 +31,13 @@
       <div class="hero__copy">
         <p class="eyebrow">FIELD NOTES · 2026</p>
         <h1>인생이라는 필름,<br/><span>가장 빛나는 한 컷</span>을 남기는 법</h1>
-        <p class="lede">지금 눈앞의 순간에 맞는 촬영법을 골라 바로 쓰세요. 구도·빛·포즈·폰 설정을 <strong>그림 한 장과 세 단계</strong>로 정리했습니다.</p>
+        <p class="lede">지금 눈앞의 순간에 맞는 촬영법을 골라 바로 쓰세요. 구도·빛·포즈·폰 설정을 <strong>실사 사진 한 장과 세 단계</strong>로 정리했습니다.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="#cards">상황별로 찾기</a>
           <button class="btn btn--ghost" id="randomBtn" type="button">랜덤 한 컷 뽑기</button>
         </div>
         <dl class="stats">
-          <div><dt>실전 카드</dt><dd id="statCards">39</dd></div>
+          <div><dt>실전 카드</dt><dd id="statCards">100</dd></div>
           <div><dt>검증한 원문 링크</dt><dd>13</dd></div>
           <div><dt>참고 링크</dt><dd>36</dd></div>
         </dl>
@@ -102,7 +102,7 @@
     </div>
     <ol class="howto__list">
       <li><span>1</span><div><b>상황을 고릅니다.</b> 혼자 여행, 인물, 풍경, 카페, 야경 중 지금과 가까운 칩을 누르세요.</div></li>
-      <li><span>2</span><div><b>그림으로 먼저 이해합니다.</b> 카드의 뷰파인더에서 <em>Before</em>와 <em>After</em>를 번갈아 눌러 보세요. 무엇이 달라지는지 눈으로 확인됩니다.</div></li>
+      <li><span>2</span><div><b>사진으로 먼저 이해합니다.</b> 카드의 뷰파인더에서 <em>Before</em>와 <em>After</em>를 번갈아 눌러 보세요. 무엇이 달라지는지 눈으로 확인됩니다.</div></li>
       <li><span>3</span><div><b>현장에서 체크리스트를 씁니다.</b> 체크한 내용은 이 브라우저에 저장되어, 다시 열어도 남아 있습니다.</div></li>
     </ol>
   </section>
@@ -155,7 +155,7 @@
 <footer class="footer">
   <div class="footer__inner">
     <p><b>인생이라는 필름</b> — 쿠사리님을 위한 사진 촬영 필드 가이드</p>
-    <p class="footer__small">기법은 사진 교육 자료와 촬영자들의 공개 기록을 정리한 것입니다. 기종·OS 버전에 따라 메뉴 이름이 다를 수 있습니다.</p>
+    <p class="footer__small">기법은 사진 교육 자료와 촬영자들의 공개 기록을 정리한 것입니다. 기종·OS 버전에 따라 메뉴 이름이 다를 수 있습니다.<br/>카드의 사진은 구도·노출 설명을 돕기 위해 만든 이미지로, 실제 촬영지나 인물의 기록 사진은 아닙니다. EXIF 표기는 카드가 가르치는 설정을 옮긴 예시입니다.</p>
   </div>
 </footer>
 
@@ -175,12 +175,15 @@
         </div>
       </div>
       <p class="vf__hint" id="mHint">두 상태를 번갈아 눌러 무엇이 달라지는지 비교해 보세요.</p>
-      <div class="vf__progress">
-        <div class="vf__progress-top"><span>현장 체크</span><b><span id="mProgressN">0</span> / <span id="mProgressT">3</span></b></div>
+      <section class="vf__check">
+        <div class="vf__check-head">
+          <h3>현장 체크리스트</h3>
+          <b><span id="mProgressN">0</span> / <span id="mProgressT">3</span></b>
+        </div>
         <div class="vf__progress-bar"><i id="mProgressBar"></i></div>
-        <p class="vf__progress-note">체크한 항목은 이 기기에 저장됩니다.</p>
-      </div>
-      <div class="vf__related" id="mRelated"></div>
+        <ul class="checklist" id="mChecks"></ul>
+        <p class="vf__check-note">체크한 항목은 이 기기에 저장됩니다.</p>
+      </section>
     </div>
     <div class="modal__body">
       <div class="modal__head">
@@ -198,11 +201,6 @@
         <ul id="mFails"></ul>
       </section>
       <section class="mblock">
-        <h3>현장 체크리스트</h3>
-        <ul class="checklist" id="mChecks"></ul>
-        <p class="mblock__note">체크 상태는 이 기기에 저장됩니다.</p>
-      </section>
-      <section class="mblock">
         <h3>출처 · 참고</h3>
         <ul class="srcList" id="mSources"></ul>
       </section>
@@ -218,7 +216,9 @@
 </div>
 
 <script src="data.js"></script>
-<script src="diagrams.js"></script>
+<script src="cards-more.js"></script>
+<script src="photos.js"></script>
+<script src="photos-more.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
