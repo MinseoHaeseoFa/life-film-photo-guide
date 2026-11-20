@@ -26,6 +26,7 @@ python3 -m http.server 8000
 | `app.js` | 필터·검색·스크랩·모달·뷰파인더·체크리스트 저장(localStorage) |
 | `research/source-notes.md` | 요청 링크 13개 확인 결과와 추가 수집·확인 자료 목록 |
 | `qa/verify.py` | 100장 전수 검증 (데이터·유사도·이미지·실브라우저 1440/390) |
+| `qa/test_scroll.py` | 탭·필터 전환 시 첫 카드 스크롤 정렬 회귀 테스트 (1440/390) |
 | `qa/gen_images.py`, `qa/img-prompts.tsv` | 신규 사진 67장 생성 프롬프트와 900px 경량화 스크립트 |
 | `qa/build_photos.py` | 카드↔사진 1:1 매핑과 초점 좌표로 `photos*.js` 재생성 |
 | `qa/test_v2.py`, `qa/shot.py`, `qa/test_ui.py` | 이전 버전 검증·스크린샷 스크립트 (기록용) |
