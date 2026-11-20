@@ -95,6 +95,31 @@
     </div>`;
   }
 
+  /* ── 필터 결과로 스크롤 정렬 ─────────────
+     탭·필터를 바꾸면 sticky 상단바 + 필터 바에 가려지지 않도록
+     첫 카드 상단을 필터 바 바로 아래로 맞춘다. 최초 로드에는 쓰지 않는다. */
+  function stickyBarBottom() {
+    const topbar = document.querySelector('.topbar');
+    const bar = document.querySelector('.controls');
+    const h1 = topbar ? topbar.getBoundingClientRect().height : 0;
+    const h2 = bar ? bar.getBoundingClientRect().height : 0;
+    return Math.round(h1 + h2);
+  }
+
+  function scrollToResults() {
+    const grid = $('#grid');
+    if (!grid) return;
+    const first = grid.querySelector('.card');
+    const anchor = first || $('#cards');
+    if (!anchor) return;
+    const top = window.scrollY + anchor.getBoundingClientRect().top - stickyBarBottom() - 12;
+    const html = document.documentElement;
+    const prev = html.style.scrollBehavior;
+    html.style.scrollBehavior = 'auto';
+    window.scrollTo(0, Math.max(0, Math.round(top)));
+    html.style.scrollBehavior = prev;
+  }
+
   /* ── 필터 UI ─────────────────────────── */
   function renderChips() {
     const wrap = $('#catChips');
@@ -107,6 +132,7 @@
       state.cat = b.dataset.cat;
       $$('.chip', wrap).forEach(x => x.setAttribute('aria-selected', String(x === b)));
       renderGrid();
+      scrollToResults();
     });
   }
 
@@ -119,6 +145,7 @@
       state.lens = b.dataset.lens;
       $$('button', wrap).forEach(x => x.setAttribute('aria-pressed', String(x === b)));
       renderGrid();
+      scrollToResults();
     });
   }
 
@@ -185,7 +212,7 @@
       mf.setAttribute('aria-pressed', String(state.favs.has(id)));
       mf.textContent = state.favs.has(id) ? '★ 스크랩됨' : '★ 스크랩';
     }
-    if (state.favOnly) renderGrid();
+    if (state.favOnly) { renderGrid(); scrollToResults(); }
   }
 
   /* ── 모달 ────────────────────────────── */
@@ -325,18 +352,20 @@
       state.q = search.value;
       $('#searchClear').hidden = !search.value;
       renderGrid();
+      scrollToResults();
     });
     $('#searchClear').addEventListener('click', () => {
-      search.value = ''; state.q = ''; $('#searchClear').hidden = true; renderGrid(); search.focus();
+      search.value = ''; state.q = ''; $('#searchClear').hidden = true; renderGrid(); scrollToResults(); search.focus();
     });
 
     $('#favFilter').addEventListener('click', e => {
       state.favOnly = !state.favOnly;
       e.currentTarget.setAttribute('aria-pressed', String(state.favOnly));
       renderGrid();
+      scrollToResults();
     });
 
-    $('#levelSelect').addEventListener('change', e => { state.level = e.target.value; renderGrid(); });
+    $('#levelSelect').addEventListener('change', e => { state.level = e.target.value; renderGrid(); scrollToResults(); });
 
     $('#resetBtn').addEventListener('click', () => {
       state.cat = 'all'; state.q = ''; state.level = 'all'; state.lens = 'all'; state.favOnly = false;
@@ -346,7 +375,7 @@
       $$('.chip').forEach(c => c.setAttribute('aria-selected', String(c.dataset.cat === 'all')));
       $$('#lensFilter button').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.lens === 'all')));
       renderGrid();
-      $('#cards').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      scrollToResults();
     });
 
     $('#randomBtn').addEventListener('click', () => {

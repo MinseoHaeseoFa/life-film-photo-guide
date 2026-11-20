@@ -8,7 +8,7 @@ import json, os, re, subprocess, sys, time, itertools
 from playwright.sync_api import sync_playwright
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = '/workspace/downloads/life-film-v3-2026-11-21'
+OUT = '/workspace/downloads/life-film-v4-2026-11-21'
 PORT = 8791
 os.makedirs(OUT, exist_ok=True)
 LIB = '/workspace/.local/lib/chromedeps/usr/lib/x86_64-linux-gnu'
@@ -173,7 +173,7 @@ try:
         pg = b.new_page(viewport={'width': 1440, 'height': 900}, device_scale_factor=2)
         pg.goto(f'http://127.0.0.1:{PORT}/index.html', wait_until='networkidle')
         modal = {}
-        for cid in ['puddle-reflection', 'space', 'food-action']:
+        for cid in ['exhibit-glass', 'space', 'food-action']:
             pg.click(f'.card[data-id="{cid}"]')
             pg.wait_for_timeout(250)
             pg.click('#mBefore')
@@ -199,15 +199,15 @@ try:
         report['stats']['modal'] = modal
 
         # ── 스크린샷 ──
-        pg.click('.card[data-id="puddle-reflection"]')
+        pg.click('.card[data-id="night-market"]')
         pg.wait_for_timeout(300)
         pg.click('#mAfter'); pg.click('#mGrid'); pg.wait_for_timeout(300)
-        pg.locator('.vf').screenshot(path=f'{OUT}/modal-after-puddle.png')
+        pg.locator('.vf').screenshot(path=f'{OUT}/modal-after-night-market.png')
         pg.click('#mBefore'); pg.wait_for_timeout(250)
-        pg.locator('.vf').screenshot(path=f'{OUT}/modal-before-puddle.png')
+        pg.locator('.vf').screenshot(path=f'{OUT}/modal-before-night-market.png')
         pg.click('#modalClose'); pg.wait_for_timeout(200)
         pg.screenshot(path=f'{OUT}/desktop-1440.png', full_page=False)
-        pg.screenshot(path=f'{OUT}/desktop-full.png', full_page=True)
+        pg.screenshot(path=f'{OUT}/desktop-grid-top.png', clip={'x': 0, 'y': 0, 'width': 1440, 'height': 2400})
         pg.set_viewport_size({'width': 390, 'height': 844})
         pg.wait_for_timeout(400)
         pg.screenshot(path=f'{OUT}/mobile-390.png', full_page=False)

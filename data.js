@@ -1,4 +1,4 @@
-/* 인생이라는 필름 — 데이터 (1부: 세팅 15 · 혼자 여행 15 · 인물·포즈 18)
+/* 인생이라는 필름 — 데이터 (1부: 혼자 여행·인물·세팅 + 풍경 일부)
    모든 카드의 사실 근거는 research/source-notes.md 와 이 파일의 sources 에 기록되어 있습니다.
    같은 기법이 두 번 나오지 않도록 100장을 전수 재설계했습니다(2026-11-21). */
 
@@ -63,11 +63,25 @@ const SRC = {
   apple_night: { t: 'Apple 지원 「iPhone 야간 모드 사용하기」', u: 'https://support.apple.com/en-us/102519', v: '확인' },
   apple_portrait: { t: 'Apple 지원 「iPhone 인물 사진 모드 사용하기」', u: 'https://support.apple.com/en-us/102398', v: '확인' },
   apple_tools: { t: 'Apple 지원 「iPhone 카메라 도구로 구도 잡기」', u: 'https://support.apple.com/guide/iphone/use-camera-tools-iph3dc593597/ios', v: '확인' },
-  imore_night: { t: 'iMore 「iPhone Photography Basics: How to use Night mode」', u: 'https://www.imore.com/iphone/iphone-photography-basics-how-to-use-night-mode', v: '확인' }
+  imore_night: { t: 'iMore 「iPhone Photography Basics: How to use Night mode」', u: 'https://www.imore.com/iphone/iphone-photography-basics-how-to-use-night-mode', v: '확인' },
+  ava_museum: { t: 'AVAseoul 「미술관·전시장에서 찍기」 — 유리 반사·플래시 금지·ISO', u: 'https://avaseoul.com/%eb%af%b8%ec%88%a0%ea%b4%80%c2%b7%ec%a0%84%ec%8b%9c%ec%9e%a5%ec%97%90%ec%84%9c-%ec%b0%8d%ea%b8%b0/', v: '확인' },
+  studiosoy: { t: 'studiosoy — 인스타 전시 사진, 동선과 조명별 실수 4가지', u: 'https://studiosoy.net/insta-exhibit-photo-flow-light-mistakes/', v: '확인' },
+  kaminbeth: { t: '카미앤베스 — 스마트폰으로 반려동물 사진 잘 찍는 8가지 방법', u: 'https://kaminbeth.com/bbs/board.php?bo_table=pet_life&wr_id=6', v: '확인' },
+  petpotal: { t: '펫포털 — 반려동물 인생샷 건지는 사진 잘 찍는 방법 5가지', u: 'https://petpotal.ttpk.co.kr/guide/pet-photo', v: '확인' },
+  ghotel: { t: 'Google Hotel Center — 숙소 사진 권장 사항과 스마트폰 팁', u: 'https://support.google.com/hotelprices/answer/13483115?hl=ko', v: '확인' },
+  airbnb_help: { t: 'Airbnb 도움말 — 숙소 사진 촬영 팁(자연 채광·가로 촬영)', u: 'https://www.airbnb.co.kr/help/article/746', v: '확인' },
+  jeju_window: { t: '제주일보 「기차 사진은 렌즈 위치부터」 — 창밖 반사 줄이기', u: 'https://www.jejutwn.com/news/article.html?no=463981', v: '확인' },
+  bonamy: { t: '보남이의 앱세이 — 창밖 풍경은 폰을 유리에 붙여 찍기', u: 'https://m.blog.naver.com/bonamy/221269323189', v: '확인' },
+  ava_nightmarket: { t: 'AVAseoul 「야시장·포장마차 야경」 — ISO 1600~3200·1/125초·WB', u: 'https://avaseoul.com/%ec%95%bc%ec%8b%9c%ec%9e%a5%c2%b7%ed%8f%ac%ec%9e%a5%eb%a7%88%ec%b0%a8-%ec%95%bc%ea%b2%bd-%ec%96%b4%eb%91%a0-%ec%86%8d-%ec%83%89%ec%83%89%ec%9d%98-%eb%b6%88%eb%b9%9b%ec%9d%84-%ec%9a%94/', v: '확인' },
+  nightmarket_guide: { t: '우리동네야시장 — 폰으로 야시장 조명·음식·풍경 담기', u: 'https://xn--950b94c1wh42k8idy5bf8b.com/guide/photos', v: '확인' },
+  pajoox: { t: 'Pajoox — 스마트폰 야경 사진과 도시 촬영 팁', u: 'https://pajoox.com/ko/blog/city-night-photo-ideas-better-phone-photos-after-dark', v: '확인' },
+  trainfyi: { t: 'TrainFYI — 기차 사진 가이드(창 반사·셔터 1/500초 기준)', u: 'https://trainfyi.com/guides/train-photography/', v: '확인' },
+  cizucu: { t: 'cizucu 매거진 — 계단을 찍는 법(앵글·빛·사람)', u: 'https://www.cizucu.com/ko/magazines/2026-01-photography-of-stairs', v: '확인' },
+  skylum: { t: 'Skylum 블로그 — 촬영 시점으로 깊이와 리듬 만들기', u: 'https://blog.skylum.com/ko/vantage-point-photography-how-to-create-depth-and-impact/', v: '확인' },
 };
 
 const CARDS = [
-  /* ── 폰 카메라 세팅 (15) ───────────────────────── */
+  /* ── 폰 카메라 세팅 ───────────────────────────── */
   {
     id: 'grid-level', cat: ['setting'], level: 1, lens: ['1x'],
     title: '격자·수평계 3초 세팅',
@@ -309,7 +323,7 @@ const CARDS = [
     sources: [SRC.ig_23]
   },
 
-  /* ── 혼자 여행·셀카봉 (15) ─────────────────────── */
+  /* ── 혼자 여행·셀카봉 ─────────────────────────── */
   {
     id: 'selfie-height', cat: ['solo'], level: 1, lens: ['1x'],
     title: '셀카봉은 눈보다 한 뼘 위',
@@ -343,20 +357,20 @@ const CARDS = [
     sources: [SRC.jamie, SRC.haruw]
   },
   {
-    id: 'selfie-place', cat: ['solo'], level: 1, lens: ['1x'],
-    title: '난간이 곧 삼각대',
-    tagline: '혼자일 때 가장 선명한 사진은 폰을 놓고 찍은 사진입니다.',
-    keywords: '삼각대 없이 난간 벽 가방 고정 셀프 타이머 혼자',
-    principle: '폰을 난간·벽·가방 위에 고정하고 3초 타이머를 걸면 셀카봉보다 흔들림이 적습니다. 렌즈 높이만 허리보다 위로 맞추면 다리도 길게 담깁니다.',
+    id: 'night-selfie-light', cat: ['solo', 'night'], level: 1, lens: ['1x'],
+    title: '야경 셀카는 간판 빛 앞 한 발짝',
+    tagline: '어두운 골목에서 찍으면 얼굴만 사라집니다. 빛으로 걸어가세요.',
+    keywords: '야경 셀카 인물 광원 간판 쇼윈도 노출 셀피 밤',
+    principle: '밤에는 화면에서 가장 밝은 곳으로 시선이 가므로 인물도 광원 가까이에 서야 합니다. 간판이나 쇼윈도에서 한 발짝 앞에 서면 얼굴이 살고, 광원 바로 아래는 눈 밑 그림자가 지므로 반 발짝 더 앞으로 나옵니다. 얼굴을 터치해 초점과 노출을 잡고 1~2장 찍어 배경 불빛과의 균형을 봅니다.',
     steps: [
-      '움직이지 않는 난간·벽·테이블을 찾는다.',
-      '폰을 기대어 세우고 렌즈를 허리 위 높이로 맞춘다.',
-      '3초 타이머를 걸고 화면으로 위치를 확인한다.'
+      '간판이나 쇼윈도 빛을 찾아 그 앞 한 발짝에 선다.',
+      '눈 밑 그림자가 지면 반 발짝 앞으로 나온다.',
+      '얼굴을 터치해 초점·노출을 잡고 한 장 더 찍어 비교한다.'
     ],
-    badges: [{ k: '도구', v: '난간·가방' }, { k: '설정', v: '타이머 3초' }],
-    fails: ['경사진 난간에 그냥 세워 폰이 미끄러지는 경우', '낮은 곳에 두고 허리만 굽혀 다리가 짧아 보이는 사진'],
-    checks: ['폰이 흔들리지 않게 고정됐다', '렌즈가 허리보다 위다', '타이머가 작동했다'],
-    sources: [SRC.solo1, SRC.jetlag]
+    badges: [{ k: '거리', v: '한 발짝' }, { k: '광원', v: '얼굴 앞' }],
+    fails: ['광원에서 멀리 서서 얼굴만 어둡게 나온 사진', '간판 바로 아래 서서 눈 밑이 새까맣게 찍힌 사진'],
+    checks: ['얼굴에 빛이 닿는다', '눈 밑 그림자가 없다', '배경 불빛이 하얗게 날아가지 않았다'],
+    sources: [SRC.pajoox, SRC.nightmarket_guide]
   },
   {
     id: 'selfie-marker', cat: ['solo'], level: 2, lens: ['1x'],
@@ -423,20 +437,20 @@ const CARDS = [
     sources: [SRC.mytravel, SRC.kaa25]
   },
   {
-    id: 'ratio', cat: ['solo', 'scene'], level: 2, lens: ['1x'],
-    title: '나와 배경, 1/3과 2/3',
-    tagline: '누가 주인공인지 먼저 정하면 구도가 3초에 잡힙니다.',
-    keywords: '비율 여백 인물 배경 구성 하단 배치 여행',
-    principle: '배경이 예쁜 곳에서는 인물을 하단 1/3에 작게, 인물이 주인공일 때는 3x로 당겨 배경을 정리합니다. 어느 쪽이 주인공인지 정하는 것이 구도보다 먼저입니다.',
+    id: 'pet-eye', cat: ['pose', 'solo'], level: 1, lens: ['1x', '3x'],
+    title: '반려동물은 무릎 꿇고 눈높이로',
+    tagline: '서서 내려다보면 머리만 커지고 배경에는 바닥이 남습니다.',
+    keywords: '반려동물 강아지 고양이 눈높이 로우앵글 초점 연사',
+    principle: '사람 눈높이에서 내려다보면 머리는 커지고 몸은 작아지며 배경에는 바닥만 남아 흐림도 만들기 어렵습니다. 무릎을 굽혀 눈높이를 맞추면 표정이 살아나고, 가까운 쪽 눈에 초점을 두면 털 결까지 선명합니다. 움직이는 순간은 연속 촬영으로 3~5장을 남겨 고릅니다.',
     steps: [
-      '이 사진의 주인공이 사람인지 장소인지 정한다.',
-      '장소가 주인공이면 인물을 하단 1/3에 작게 둔다.',
-      '사람이 주인공이면 3x로 당겨 배경을 정리한다.'
+      '무릎을 굽히거나 앉아 렌즈를 눈높이에 맞춘다.',
+      '가까운 쪽 눈을 터치해 초점을 잡는다.',
+      '움직이기 시작하면 연속 촬영으로 3~5장을 담는다.'
     ],
-    badges: [{ k: '구도', v: '1/3 · 2/3' }, { k: '렌즈', v: '1x / 3x' }],
-    fails: ['인물도 크고 배경도 꽉 차 둘 다 산만한 사진', '인물을 중앙에 두고 랜드마크를 잘라 먹은 사진'],
-    checks: ['주인공이 하나로 정해졌다', '인물과 배경이 1:2다', '랜드마크가 잘리지 않았다'],
-    sources: [SRC.impulse, SRC.gudo]
+    badges: [{ k: '높이', v: '눈높이' }, { k: '초점', v: '눈' }],
+    fails: ['서서 내려다봐 머리만 크고 배경이 바닥인 사진', '플래시를 켜 눈이 하얗게 뜨고 아이가 놀란 사진'],
+    checks: ['렌즈가 눈높이다', '눈에 초점이 맞았다', '배경이 단순하다'],
+    sources: [SRC.kaminbeth, SRC.petpotal]
   },
   {
     id: 'scene-first', cat: ['solo', 'scene'], level: 1, lens: ['1x'],
@@ -551,7 +565,7 @@ const CARDS = [
     sources: [SRC.jetlag, SRC.solo1]
   },
 
-  /* ── 인물·포즈 (18) ───────────────────────────── */
+  /* ── 인물·포즈 ───────────────────────────────── */
   {
     id: 'eye-thirds', cat: ['pose'], level: 1, lens: ['1x', '3x'],
     title: '눈을 위쪽 교차점에',

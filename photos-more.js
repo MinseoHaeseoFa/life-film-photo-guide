@@ -26,12 +26,6 @@ Object.assign(MEDIA, {
     before: bFlat('색 대비 없음 · 주인공 실종'),
     after: aAt(43, 60, '빨강 하나로 시선 고정', ['thirds', 'dots'])
   },
-  'eye-level-change': {
-    photo: 'eye-level-change', pos: '50% 55%',
-    exif: EX('24mm', 'f/4.0', 'ISO 100', '1/320s', 'EV -0.3', 'WB 5600K'),
-    before: bZoom(1.26, '서서 찍은 눈높이'),
-    after: aAt(50, 55, '바닥 낮은 시점', ['thirds', 'level'])
-  },
   'sea-ev': {
     photo: 'sea-ev', pos: '50% 45%',
     exif: EX('26mm', 'f/4.0', 'ISO 50', '1/1000s', 'EV -1.0', 'WB 6000K'),
@@ -56,23 +50,11 @@ Object.assign(MEDIA, {
     before: bZoom(1.4, '세로 대상을 가로로 잘라'),
     after: aAt(50, 45, '길면 세로', ['thirds'])
   },
-  'vertical-line': {
-    photo: 'vertical-line', pos: '50% 45%',
-    exif: EX('24mm', 'f/5.6', 'ISO 100', '1/160s', 'EV 0.0', 'WB 5200K'),
-    before: bTilt(-3.6, '건물 수직선이 기움', 1.0),
-    after: aAt(50, 45, '격자로 수직선 맞추기', ['thirds', 'level'])
-  },
   'overcast-soft': {
     photo: 'overcast-soft', pos: '68% 50%',
     exif: EX('50mm', 'f/2.8', 'ISO 400', '1/125s', 'EV 0.3', 'WB 5600K'),
     before: bFlat('흐린 하늘 절반 · 회색 벽'),
     after: aAt(68, 50, '하늘 1/4 · 확산광', ['thirds'])
-  },
-  'rain-window': {
-    photo: 'rain-window', pos: '50% 50%',
-    exif: EX('35mm', 'f/2.0', 'ISO 800', '1/60s', 'EV -0.3', 'WB 4200K'),
-    before: bZoom(1.5, '창밖에 초점 · 물방울 뭉개짐'),
-    after: aAt(50, 50, '물방울에 초점 · 보케', ['thirds'])
   },
   'fog-layers': {
     photo: 'fog-layers', pos: '50% 50%',
@@ -170,12 +152,6 @@ Object.assign(MEDIA, {
     before: bCenter(1.2, '접시 두 개를 나란히'),
     after: aAt(50, 50, '3·5개 홀수 배치', ['thirds'])
   },
-  'food-many': {
-    photo: 'food-many', pos: '65% 55%',
-    exif: EX('35mm', 'f/2.8', 'ISO 400', '1/125s', 'EV 0.3', 'WB 4800K'),
-    before: bZoom(1.35, '한 장 찍고 자리를 뜸'),
-    after: aAt(65, 55, '앵글·거리 10~15장', ['thirds'])
-  },
   'food-edit': {
     photo: 'food-edit', pos: '50% 50%',
     exif: EX('26mm', 'f/2.8', 'ISO 200', '1/160s', 'EV 0.3', 'WB 5000K'),
@@ -212,12 +188,6 @@ Object.assign(MEDIA, {
     before: bCenter(1.2, '접시 정중앙 · 답답함'),
     after: aAt(60, 55, '대각선 · 여백 한쪽', ['thirds'])
   },
-  'puddle-reflection': {
-    photo: 'rainy-puddle', pos: '50% 60%',
-    exif: EX('24mm', 'f/2.0', 'ISO 800', '1/30s', 'EV -0.7', 'WB 3600K'),
-    before: bCenter(1.1, '서서 찍음 · 반영이 사라짐'),
-    after: aAt(50, 60, '물가 낮은 시점 · 반영', ['thirds', 'level'])
-  },
   'rain-streak': {
     photo: 'rain-streak', pos: '50% 45%',
     exif: EX('70mm', 'f/2.8', 'ISO 50', '1/50s', 'EV -0.3', 'WB 4200K'),
@@ -247,12 +217,6 @@ Object.assign(MEDIA, {
     exif: EX('24mm', 'f/1.8', 'ISO 3200', '15s', 'EV -2.0', 'WB 3900K'),
     before: bBlow('도시 광해 · 별이 씻겨 사라짐'),
     after: aAt(50, 40, '천체 모드 · 12분', ['thirds', 'level'])
-  },
-  'star-manual': {
-    photo: 'star-field', pos: '50% 50%',
-    exif: EX('24mm', 'f/1.8', 'ISO 3200', '15s', 'EV -1.7', 'WB 3900K'),
-    before: bSoft('자동 초점 · 별이 뭉개짐'),
-    after: aAt(50, 50, '수동 초점 · 15초', ['thirds', 'level'])
   },
   'sunset-wb': {
     photo: 'sunset-silhouette', pos: '53% 62%',
@@ -290,18 +254,6 @@ Object.assign(MEDIA, {
     before: bSoft('움직여도 그냥 촬영'),
     after: aAt(45, 45, '십자선 정렬', ['thirds', 'level'])
   },
-  'night-motion': {
-    photo: 'night-motion', pos: '50% 45%',
-    exif: EX('24mm', 'f/1.8', 'ISO 200', '4s', 'EV -1.2', 'WB 4000K'),
-    before: bDark('짧은 노출로 궤적이 없음'),
-    after: aAt(50, 45, '2~4초 장노출 궤적', ['thirds'])
-  },
-  'night-sodium-wb': {
-    photo: 'night-sodium-wb', pos: '55% 50%',
-    exif: EX('35mm', 'f/2.5', 'ISO 800', '1/60s', 'EV -0.7', 'WB 3000K'),
-    before: bFlat('나트륨등 누런 색 그대로'),
-    after: aAt(55, 50, 'WB 3000K로 누런 기운', ['thirds'])
-  },
   'night-portrait-bokeh': {
     photo: 'night-portrait-bokeh', pos: '35% 50%',
     exif: EX('85mm', 'f/1.8', 'ISO 800', '1.5s', 'EV -0.7', 'WB 3800K'),
@@ -313,5 +265,65 @@ Object.assign(MEDIA, {
     exif: EX('24mm', 'f/1.8', 'ISO 100', '10s', 'EV -1.0', 'WB 3800K'),
     before: bZoom(1.3, '서 있는 사람만 남음'),
     after: aAt(50, 50, '10초 · 행인 지우기', ['thirds', 'level'])
+  },
+  'night-selfie-light': {
+    photo: 'night-selfie-light', pos: '50% 36%',
+    exif: EX('26mm', 'f/1.8', 'ISO 800', '1/60s', 'EV -0.7', 'WB 3600K'),
+    before: bDark('광원에서 멀어 얼굴만 어두움'),
+    after: aAt(50, 36, '간판 빛 앞 한 발짝 · 얼굴 노출', ['thirds'])
+  },
+  'pet-eye': {
+    photo: 'pet-eye', pos: '55% 50%',
+    exif: EX('26mm', 'f/1.8', 'ISO 400', '1/125s', 'EV 0.0', 'WB 5200K'),
+    before: bZoom(1.5, '서서 내려다본 구도'),
+    after: aAt(55, 50, '눈높이 · 눈에 초점', ['thirds'])
+  },
+  'stairs-angle': {
+    photo: 'stairs-angle', pos: '50% 50%',
+    exif: EX('16mm', 'f/2.2', 'ISO 200', '1/250s', 'EV -0.3', 'WB 5400K'),
+    before: bZoom(1.22, '수평으로만 담아 밋밋함'),
+    after: aAt(50, 50, '아래에서 올려다본 대각선', ['thirds', 'level'])
+  },
+  'exhibit-glass': {
+    photo: 'exhibit-glass', pos: '48% 45%',
+    exif: EX('26mm', 'f/1.8', 'ISO 800', '1/60s', 'EV -0.7', 'WB 3400K'),
+    before: bBlow('정면 유리 반사로 하얗게 날아감'),
+    after: aAt(48, 45, '각도를 비껴 반사 제거', ['thirds'])
+  },
+  'window-glass': {
+    photo: 'window-glass', pos: '52% 50%',
+    exif: EX('26mm', 'f/1.8', 'ISO 100', '1/500s', 'EV -0.3', 'WB 5800K'),
+    before: bSoft('유리에서 떼어 반사·흔들림'),
+    after: aAt(52, 50, '렌즈를 유리에 밀착', ['thirds'])
+  },
+  'market-food': {
+    photo: 'market-food', pos: '55% 55%',
+    exif: EX('26mm', 'f/1.8', 'ISO 800', '1/125s', 'EV -0.7', 'WB 3800K'),
+    before: bBlow('매대 조명에 흰 접시가 날아감'),
+    after: aAt(55, 55, '밝기 -1칸 · 색온도 낮춤', ['thirds'])
+  },
+  'night-market': {
+    photo: 'night-market', pos: '50% 50%',
+    exif: EX('26mm', 'f/1.8', 'ISO 3200', '1/125s', 'EV -0.5', 'WB 3600K'),
+    before: bSoft('어두워 셔터가 느려 사람이 뭉개짐'),
+    after: aAt(50, 50, 'ISO 3200 · 1/125초', ['thirds'])
+  },
+  'night-mode-choice': {
+    photo: 'night-mode-choice', pos: '50% 48%',
+    exif: EX('26mm', 'f/1.8', 'ISO 1600', '1/125s', 'EV -0.7', 'WB 3800K'),
+    before: bSoft('야간 모드로 걷는 사람이 겹침'),
+    after: aAt(50, 48, '일반 모드 · 움직임 정지', ['thirds'])
+  },
+  'hotel-room': {
+    photo: 'hotel-room', pos: '50% 50%',
+    exif: EX('16mm', 'f/2.2', 'ISO 200', '1/60s', 'EV 0.0', 'WB 5000K'),
+    before: bTilt(-3.4, '방 한가운데서 기울게 찍음', 1.0),
+    after: aAt(50, 50, '구석 · 허리 높이 · 수직', ['thirds', 'level'])
+  },
+  'subject-face': {
+    photo: 'subject-face', pos: '52% 50%',
+    exif: EX('50mm', 'f/4.0', 'ISO 100', '1/500s', 'EV -0.3', 'WB 5600K'),
+    before: bZoom(1.4, '비스듬히 담아 힘이 빠짐'),
+    after: aAt(52, 50, '정면에서 똑바로', ['thirds'])
   },
 });
