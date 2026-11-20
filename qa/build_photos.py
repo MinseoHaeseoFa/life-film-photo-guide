@@ -45,7 +45,7 @@ R = [
 ('request-stranger','request-stranger','산길에서 지나가는 사람에게 폰을 건네는 여행자','35mm|f/4.0|ISO 100|1/500s|EV 0.0|WB 5600K','zoom|1.4|얼굴만 크게 · 발끝 잘림',50,45,'세로 · 발끝까지 · 3장','thirds'),
 
 # ── 인물·포즈 ──
-('eye-thirds','window-portrait','창가 빛을 받는 여성의 상반신','50mm|f/1.8|ISO 200|1/160s|EV 0.3|WB 5000K','center|1.24|얼굴 중앙 · 눈이 정중앙',24,42,'눈 = 위쪽 교차점','thirds,dots'),
+('eye-thirds','eye-thirds','눈이 위쪽 교차점에 놓인 창가 인물','50mm|f/1.8|ISO 200|1/160s|EV 0.3|WB 5000K','center|1.24|얼굴 중앙 · 눈이 정중앙',33,33,'눈 = 위쪽 교차점','thirds,dots'),
 ('hands-role','bokeh-portrait','두 손으로 컵을 쥔 여성과 흐려진 배경','35mm|f/2.0|ISO 400|1/125s|EV 0.3|WB 4800K','zoom|1.2|손이 프레임 아래로 잘림',53,36,'손에 역할 · 컵을 쥐게','thirds'),
 ('body-turn','lean-wall','벽 옆에서 몸을 튼 채 선 여성','85mm|f/2.0|ISO 100|1/400s|EV 0.0|WB 5600K','center|1.28|정면 · 증명사진 각도',62,45,'몸 45도 · 얼굴만 정면','thirds,dots'),
 ('lean','leaning-railing','바다를 향해 난간에 기댄 여성','50mm|f/2.4|ISO 100|1/500s|EV -0.3|WB 5200K','tilt|2.6|수평 2.6° · 팔이 붙음|1.12',30,40,'한쪽만 기대 사선','thirds,level'),

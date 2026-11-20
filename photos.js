@@ -34,7 +34,7 @@ const PHOTOS = {
   'selfie-story-3': { src: 'assets/img/selfie-story-3.jpg', w: 900, h: 600, alt: '해안도로를 걷는 배낭 여행자의 전신' },
   'mirror-selfie': { src: 'assets/img/mirror-selfie.jpg', w: 900, h: 649, alt: '빈티지 호텔에서 거울 셀피를 찍는 여성' },
   'request-stranger': { src: 'assets/img/request-stranger.jpg', w: 900, h: 600, alt: '산길에서 지나가는 사람에게 폰을 건네는 여행자' },
-  'window-portrait': { src: 'assets/img/window-portrait.jpg', w: 1280, h: 853, alt: '창가 빛을 받는 여성의 상반신' },
+  'eye-thirds': { src: 'assets/img/eye-thirds.jpg', w: 900, h: 810, alt: '눈이 위쪽 교차점에 놓인 창가 인물' },
   'bokeh-portrait': { src: 'assets/img/bokeh-portrait.jpg', w: 1280, h: 853, alt: '두 손으로 컵을 쥔 여성과 흐려진 배경' },
   'lean-wall': { src: 'assets/img/lean-wall.jpg', w: 1280, h: 852, alt: '벽 옆에서 몸을 튼 채 선 여성' },
   'leaning-railing': { src: 'assets/img/leaning-railing.jpg', w: 1280, h: 853, alt: '바다를 향해 난간에 기댄 여성' },
@@ -300,10 +300,10 @@ const MEDIA = {
     after: aAt(50, 45, '세로 · 발끝까지 · 3장', ['thirds'])
   },
   'eye-thirds': {
-    photo: 'window-portrait', pos: '24% 42%',
+    photo: 'eye-thirds', pos: '33% 33%',
     exif: EX('50mm', 'f/1.8', 'ISO 200', '1/160s', 'EV 0.3', 'WB 5000K'),
     before: bCenter(1.24, '얼굴 중앙 · 눈이 정중앙'),
-    after: aAt(24, 42, '눈 = 위쪽 교차점', ['thirds', 'dots'])
+    after: aAt(33, 33, '눈 = 위쪽 교차점', ['thirds', 'dots'])
   },
   'hands-role': {
     photo: 'bokeh-portrait', pos: '53% 36%',
