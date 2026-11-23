@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""인생이라는 필름 v3 — 100장 전수 검증.
-1) 데이터: 카드 100 · 단계 3 · 실수 2 · 체크 3 · 출처 1개 이상 · 중복/유사 0건
-2) 이미지: 카드 100 = 사진 100 (중복 0) · 파일 실존 · 용량 · 해상도
-3) 실브라우저: 100장 이미지 전수 로드 · 1440/390 레이아웃 · 콘솔 에러 0 · 모달 동작
+"""인생이라는 필름 — 전수 검증 (카드 수는 데이터에서 읽습니다).
+1) 데이터: 카드 · 단계 3 · 실수 2 · 체크 3 · 출처 1개 이상 · 중복/유사 0건
+2) 이미지: 카드 = 사진 (중복 0) · 파일 실존 · 용량 · 해상도
+3) 실브라우저: 전 카드 이미지 로드 · 1440/390 레이아웃 · 콘솔 에러 0 · 모달 동작
 """
 import json, os, re, subprocess, sys, time, itertools
 from playwright.sync_api import sync_playwright
@@ -78,13 +78,14 @@ try:
         report['stats']['photos'] = D['nPhotos']
 
         # ── 데이터 검증 ──
-        if len(cards) != 100:
-            add_err(f'카드 수 {len(cards)} (100 아님)')
+        N = len(cards)
+        if len(cards) < 100:
+            add_err(f'카드 수 {len(cards)} (100장 미만)')
         ids = [c['id'] for c in cards]
-        if len(set(ids)) != 100:
+        if len(set(ids)) != N:
             add_err('카드 id 중복: ' + str([i for i in set(ids) if ids.count(i) > 1]))
         titles = [c['title'] for c in cards]
-        if len(set(titles)) != 100:
+        if len(set(titles)) != N:
             add_err('카드 제목 중복: ' + str([t for t in set(titles) if titles.count(t) > 1]))
         for c in cards:
             if len(c.get('steps', [])) != 3:
@@ -108,7 +109,7 @@ try:
 
         # ── 이미지 검증 ──
         used = [media[c['id']]['photo'] for c in cards]
-        if len(set(used)) != 100:
+        if len(set(used)) != N:
             dup = [u for u in set(used) if used.count(u) > 1]
             add_err(f'이미지 중복 사용: {dup}')
         total = 0
@@ -130,7 +131,7 @@ try:
                 add_err(f'{key}: 해상도 {w}x{h} ≠ 메타 {ph["w"]}x{ph["h"]}')
         report['stats']['img_total_mb'] = round(total / 1024 / 1024, 2)
 
-        # ── 실브라우저: 100장 이미지 전수 로드 + 레이아웃 ──
+        # ── 실브라우저: 전 카드 이미지 로드 + 레이아웃 ──
         layouts = {}
         for label, w, h in [('desktop', 1440, 900), ('mobile', 390, 844)]:
             ctx = b.new_context(viewport={'width': w, 'height': h}, device_scale_factor=1,
@@ -142,7 +143,7 @@ try:
             pg.goto(f'http://127.0.0.1:{PORT}/index.html', wait_until='networkidle')
             pg.wait_for_timeout(500)
             n = pg.locator('.card').count()
-            if n != 100:
+            if n != N:
                 add_err(f'{label}: 카드 DOM {n}개')
             bad = []
             for i in range(n):

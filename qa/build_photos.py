@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
-"""photos.js / photos-more.js 생성기.
-카드 100장 = 이미지 100장 1:1 매핑, 각 사진의 실제 피사체 위치에 초점 좌표(fx·fy)를 맞춘다.
+"""photos.js / photos-more.js 생성기 (v3 시점 기록).
+카드 = 이미지 1:1 매핑, 각 사진의 실제 피사체 위치에 초점 좌표(fx·fy)를 맞춘다.
+NOTE: 아래 R 목록은 2026-11-21 v3 시점의 카드 구성입니다. 이후 v4·v5에서 카드가 교체·추가되어
+현재 photos*.js 와 100% 일치하지 않으므로, 재생성에 쓰기 전에 R 목록을 현재 cards 와 대조해야 합니다.
 """
 import os
 from PIL import Image
