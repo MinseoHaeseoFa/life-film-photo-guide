@@ -125,7 +125,8 @@
     const wrap = $('#catChips');
     wrap.innerHTML = CATS.map(c => {
       const n = c.id === 'all' ? CARDS.length : CARDS.filter(x => x.cat.includes(c.id)).length;
-      return `<button type="button" class="chip" role="tab" data-cat="${c.id}" aria-selected="${c.id === state.cat}">${c.label}<span class="n">${n}</span></button>`;
+      const hint = c.id === 'all' ? `전체 카드 ${CARDS.length}장` : `${c.label} ${n}장 · 두 분야에 속한 카드는 각각 셉니다`;
+      return `<button type="button" class="chip" role="tab" data-cat="${c.id}" title="${hint}" aria-selected="${c.id === state.cat}">${c.label}<span class="n">${n}</span></button>`;
     }).join('');
     wrap.addEventListener('click', e => {
       const b = e.target.closest('.chip'); if (!b) return;
@@ -233,7 +234,7 @@
     $('#mBadges').innerHTML = card.badges.map(b => `<span class="mbadge"><b>${b.k}</b>${b.v}</span>`).join('');
     $('#mSteps').innerHTML = card.steps.map(s => `<li>${s}</li>`).join('');
     $('#mFails').innerHTML = card.fails.map(s => `<li>${s}</li>`).join('');
-    $('#mSources').innerHTML = card.sources.map(s => `<li><a href="${s.u}" target="_blank" rel="noopener noreferrer">${s.t}</a><span class="v">${s.v}</span></li>`).join('');
+    $('#mSources').innerHTML = card.sources.filter(Boolean).map(s => `<li><a href="${s.u}" target="_blank" rel="noopener noreferrer">${s.t}</a><span class="v">${s.v}</span></li>`).join('');
 
     const saved = store.get('lifefilm:check:' + card.id, []);
     $('#mChecks').innerHTML = card.checks.map((c, i) => `
@@ -320,29 +321,56 @@
   }
 
   const LINK_ROWS = [
-    ['1', 'https://www.instagram.com/p/DfzggHxoyAu/', '인스타 포스트', 'ok', '확인(캡션)', '@elanvital7 — 스마트폰 사진 구도와 빛 20가지'],
-    ['2', 'https://www.instagram.com/p/DfMauevk2hA/', '인스타 포스트', 'ok', '확인(캡션)', '@ukwanghyun — 가을사진 예쁘게 담는 7가지'],
-    ['3', 'https://www.threads.com/@donggi_photo/post/DcEI27WGK-I', '스레드', 'ok', '확인(본문)', '@donggi_photo — 물웅덩이 반영샷 5단계'],
-    ['4', 'https://www.instagram.com/reels/DV2MPnaCO4V/', '인스타 릴스', 'part', '부분 확인', '@clos_click — 영상 프레임에서 접사·프로모드 데모만 확인'],
-    ['5', 'https://www.instagram.com/p/DWtzbX6iU-M/', '인스타 포스트', 'ok', '확인(캡션)', '@_23iii_ — 프로모드 벚꽃 색감(대비 -10 등)'],
-    ['6', 'https://www.threads.com/@pure.moood/post/DTScY4RE0am', '스레드', 'no', '접근 제한', '일부 사용자만 볼 수 있는 콘텐츠 — 내용 미확인·미수록'],
-    ['7', 'https://www.instagram.com/reels/DN9gtSIE1s6/', '인스타 릴스', 'ok', '확인(캡션)', '@junnywhere — 비 오는 날 3배 망원, 1/50 vs 1/350'],
-    ['8', 'https://www.instagram.com/reels/DHL1L9fzqQG/', '인스타 릴스', 'ok', '확인(캡션)', '@photofreak_guy — 노을 ISO100·1/1600·WB8000'],
-    ['9', 'https://www.youtube.com/watch?v=sUyBdFgieQc', '유튜브', 'ok', '확인(영상)', '미드나잇 — 갤럭시 은하수 ISO3200·15초·수동초점'],
-    ['10', 'https://www.instagram.com/reels/DNKvPAozU3Y/', '인스타 릴스', 'ok', '확인(캡션)', '@junnywhere — 불꽃놀이 ND16·ISO50·2초'],
-    ['11', 'https://www.instagram.com/reels/DIlyf8nzr4x/', '인스타 릴스', 'ok', '확인(캡션)', '@junnywhere — 인물사진 모드 3배·블러 -5'],
-    ['12', 'https://www.instagram.com/reels/DIa01BlO4sX/', '인스타 릴스', 'part', '부분 확인', '@kfconcept — 차량 라이트 트레일 주제만 확인'],
-    ['13', 'https://www.instagram.com/reels/DMh8FpuTJDS/', '인스타 릴스', 'ok', '확인(캡션)', '@junnywhere — Expert RAW 천체사진, 시간 길게']
+    ['1', 'https://www.instagram.com/p/DfzggHxoyAu/', '인스타 포스트', 'ok', '확인(캡션)', '@elanvital7 — 스마트폰 사진 구도와 빛 20가지', 'elan'],
+    ['2', 'https://www.instagram.com/p/DfMauevk2hA/', '인스타 포스트', 'ok', '확인(캡션)', '@ukwanghyun — 가을사진 예쁘게 담는 7가지', 'uk'],
+    ['3', 'https://www.threads.com/@donggi_photo/post/DcEI27WGK-I', '스레드', 'ok', '확인(본문)', '@donggi_photo — 물웅덩이 반영샷 5단계', 'donggi'],
+    ['4', 'https://www.instagram.com/reels/DV2MPnaCO4V/', '인스타 릴스', 'part', '부분 확인', '@clos_click — 영상 프레임에서 접사·프로모드 데모만 확인', 'clos'],
+    ['5', 'https://www.instagram.com/p/DWtzbX6iU-M/', '인스타 포스트', 'ok', '확인(캡션)', '@_23iii_ — 프로모드 벚꽃 색감(대비 -10 등)', '23iii'],
+    ['6', 'https://www.threads.com/@pure.moood/post/DTScY4RE0am', '스레드', 'no', '접근 제한', '일부 사용자만 볼 수 있는 콘텐츠 — 내용 미확인·미수록', 'pure'],
+    ['7', 'https://www.instagram.com/reels/DN9gtSIE1s6/', '인스타 릴스', 'ok', '확인(캡션)', '@junnywhere — 비 오는 날 3배 망원, 1/50 vs 1/350', 'junny_rain'],
+    ['8', 'https://www.instagram.com/reels/DHL1L9fzqQG/', '인스타 릴스', 'ok', '확인(캡션)', '@photofreak_guy — 노을 ISO100·1/1600·WB8000', 'sunset'],
+    ['9', 'https://www.youtube.com/watch?v=sUyBdFgieQc', '유튜브', 'ok', '확인(영상)', '미드나잇 — 갤럭시 은하수 ISO3200·15초·수동초점', 'yt'],
+    ['10', 'https://www.instagram.com/reels/DNKvPAozU3Y/', '인스타 릴스', 'ok', '확인(캡션)', '@junnywhere — 불꽃놀이 ND16·ISO50·2초', 'junny_fire'],
+    ['11', 'https://www.instagram.com/reels/DIlyf8nzr4x/', '인스타 릴스', 'ok', '확인(캡션)', '@junnywhere — 인물사진 모드 3배·블러 -5', 'junny_portrait'],
+    ['12', 'https://www.instagram.com/reels/DIa01BlO4sX/', '인스타 릴스', 'part', '부분 확인', '@kfconcept — 차량 라이트 트레일 주제만 확인', 'kf'],
+    ['13', 'https://www.instagram.com/reels/DMh8FpuTJDS/', '인스타 릴스', 'ok', '확인(캡션)', '@junnywhere — Expert RAW 천체사진, 시간 길게', 'junny_star'],
+
+    /* 2026-11-24 추가 검수 11건 */
+    ['14', 'https://www.instagram.com/p/DfMauevk2hA/', '인스타 포스트', 'dup', '중복 제외', '#2와 같은 주소 — @ukwanghyun 가을사진 카드로 이미 반영', 'uk'],
+    ['15', 'https://www.instagram.com/p/DfzggHxoyAu/', '인스타 포스트', 'dup', '중복 제외', '#1과 같은 주소 — @elanvital7 구도·빛 카드로 이미 반영', 'elan'],
+    ['16', 'https://www.threads.com/share/BAOpFT1sFX', '스레드', 'ok', '확인(본문)', '@today.picker — 새 갤럭시 카메라 세팅 9단계(해상도·화질·설정 유지) → 카드 반영', 'picker'],
+    ['17', 'https://www.instagram.com/p/DWtzbX6iU-M/', '인스타 포스트', 'dup', '중복 제외', '#5와 같은 주소 — @_23iii_ 벚꽃 색감 카드로 이미 반영', '23iii'],
+    ['18', 'https://www.threads.com/share/BAhAU7cgg4', '스레드', 'dup', '중복 제외', '#6과 같은 게시물(@pure.moood/DTScY4RE0am) — 같은 접근 제한', 'pure'],
+    ['19', 'https://www.threads.com/share/BAkJsKeGtz', '스레드', 'dup', '중복 제외', '#6·#18과 같은 게시물(@pure.moood/DTScY4RE0am) — 같은 접근 제한', 'pure'],
+    ['20', 'https://www.instagram.com/reel/DN9gtSIE1s6/', '인스타 릴스', 'dup', '중복 제외', '#7과 같은 주소 — @junnywhere 빗줄기 셔터 카드로 이미 반영', 'junny_rain'],
+    ['21', 'https://www.instagram.com/reel/DHL1L9fzqQG/', '인스타 릴스', 'dup', '중복 제외', '#8과 같은 주소 — @photofreak_guy 노을 카드로 이미 반영', 'sunset'],
+    ['22', 'https://www.instagram.com/reel/DNKvPAozU3Y/', '인스타 릴스', 'dup', '중복 제외', '#10과 같은 주소 — @junnywhere 불꽃놀이 카드로 이미 반영', 'junny_fire'],
+    ['23', 'https://www.instagram.com/reel/DIlyf8nzr4x/', '인스타 릴스', 'dup', '중복 제외', '#11과 같은 주소 — @junnywhere 소품 인물 카드로 이미 반영', 'junny_portrait'],
+    ['24', 'https://www.instagram.com/p/DfrFboQI2NC/', '인스타 포스트', 'ok', '확인(캡션)', '@zzingoon_photo — 여행지 16가지 구도(캡션의 소품·장소 팁을 카드로) → 카드 반영', 'zzingoon']
   ];
 
+  const POST_COUNT = new Set(LINK_ROWS.map(r => r[6])).size;
+  const VERIFIED_COUNT = new Set(LINK_ROWS.filter(r => r[3] === 'ok' || r[3] === 'part').map(r => r[6])).size;
+  const REF_COUNT = new Set(CARDS.reduce((a, c) => a.concat((c.sources || []).filter(Boolean).map(s => s.u)), [])).size;
+
   function renderSources() {
-    const badge = { ok: 'badge--ok', part: 'badge--part', no: 'badge--no' };
+    const badge = { ok: 'badge--ok', part: 'badge--part', no: 'badge--no', dup: 'badge--dup' };
     $('#sourceTable').innerHTML = LINK_ROWS.map(r => `
       <tr><td>${r[0]}</td>
       <td><a href="${r[1]}" target="_blank" rel="noopener noreferrer">${r[1].replace('https://www.', '').slice(0, 46)}${r[1].length > 54 ? '…' : ''}</a></td>
       <td>${r[2]}</td>
       <td><span class="badge ${badge[r[3]]}">${r[4]}</span></td>
       <td>${r[5]}</td></tr>`).join('');
+
+    const cnt = k => LINK_ROWS.filter(r => r[3] === k).length;
+    if ($('#cntOk')) $('#cntOk').textContent = cnt('ok');
+    if ($('#cntPart')) $('#cntPart').textContent = cnt('part');
+    if ($('#cntNo')) $('#cntNo').textContent = cnt('no');
+    if ($('#linkTotal')) $('#linkTotal').textContent = LINK_ROWS.length;
+    if ($('#srcSummary')) $('#srcSummary').textContent =
+      `요청 링크 ${LINK_ROWS.length}건(고유 게시물 ${POST_COUNT}건)을 직접 열어 확인했습니다. 확인 ${cnt('ok')}건·부분 확인 ${cnt('part')}건·접근 제한 ${cnt('no')}건이고, 이미 있던 링크 ${cnt('dup')}건은 중복으로 제외했습니다.`;
+    if ($('#statLinks')) $('#statLinks').textContent = VERIFIED_COUNT;
+    if ($('#statRefs')) $('#statRefs').textContent = REF_COUNT;
   }
 
   /* ── 이벤트 ──────────────────────────── */

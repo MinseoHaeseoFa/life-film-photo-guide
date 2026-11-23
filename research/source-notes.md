@@ -120,3 +120,22 @@
 | iMore 「How to use Night mode」 https://www.imore.com/iphone/iphone-photography-basics-how-to-use-night-mode | 야간 노출 1~30초, Max 설정, 움직임 감지 십자선, 모션 블러로 차량·관람차 궤적, 야간 인물 모드는 1~2초 권장 |
 
 ※ 위 17건은 2026-11-20 본문을 직접 열어 읽고, 그 안에 적힌 범위의 사실만 카드에 옮겼습니다. 본문에 없는 수치나 사례는 추가하지 않았습니다.
+
+# 2026-11-24 추가 검수의 11건 (v5)
+
+| # | 링크 | 판정 | 확인한 내용 |
+| --- | --- | --- | --- |
+| 14 | https://www.instagram.com/p/DfMauevk2hA/ | 중복 제외 | 위 2번과 같은 주소(@ukwanghyun) |
+| 15 | https://www.instagram.com/p/DfzggHxoyAu/ | 중복 제외 | 위 1번과 같은 주소(@elanvital7) |
+| 16 | https://www.threads.com/share/BAOpFT1sFX | 확인(본문) → 카드 반영 | @today.picker / post DaTuE1EEvLZ — "갤럭시 카메라 설정 9단계": ①설정 유지 모두 켬, 상단 12M→24·50MP ②사진 향상 화질 최우선·장면별 맞춤 촬영, 사진 형식 RAW+JPEG ③동영상 고효율·30/60fps·손떨림 보정 ④카메라 어시스턴트 렌즈 자동전환·초점 우선·자동 초점 속도·민감도 최대 ⑤자동 HDR ⑥24MP 해상도 ⑦사진 부드럽게·왜곡보정 끔 ⑧고급 해상도 옵션 ⑨HDR10+·OIS |
+| 17 | https://www.instagram.com/p/DWtzbX6iU-M/ | 중복 제외 | 위 5번과 같은 주소(@_23iii_) |
+| 18 | https://www.threads.com/share/BAhAU7cgg4 | 중복·접근 제한 | `@pure.moood/post/DTScY4RE0am`로 연결 — 위 6번과 같은 게시물, "이 콘텐츠는 일부 사용자만 이용할 수 있습니다" |
+| 19 | https://www.threads.com/share/BAkJsKeGtz | 중복·접근 제한 | 18번과 같은 게시물(같은 제한 문구). 공유 코드는 다르지만 도착지가 같음 |
+| 20 | https://www.instagram.com/reel/DN9gtSIE1s6/ | 중복 제외 | 위 7번과 같은 주소(@junnywhere 빗줄기) |
+| 21 | https://www.instagram.com/reel/DHL1L9fzqQG/ | 중복 제외 | 위 8번과 같은 주소(@photofreak_guy 노을) |
+| 22 | https://www.instagram.com/reel/DNKvPAozU3Y/ | 중복 제외 | 위 10번과 같은 주소(@junnywhere 불꽃놀이) |
+| 23 | https://www.instagram.com/reel/DIlyf8nzr4x/ | 중복 제외 | 위 11번과 같은 주소(@junnywhere 소품 인물) |
+| 24 | https://www.instagram.com/p/DfrFboQI2NC/ | 확인(캡션) → 카드 반영 | @zzingoon_photo(찐군), 2026-11-14. 캡션: "여행지에서 어디에 서서 어떻게 찍을지 고민될 때, 이 16가지 구도를 꺼내보세요. 골목에서는 양쪽 벽이 모이는 지점에 사람을 두고, 바닷가에서는 걷는 방향으로 여백을 남겨보세요. 넓은 풍경에 사람을 작게 담으면 절벽이나 건물의 크기가 더 잘 느껴져요. • 기차 안에서는 차창을 액자처럼 써보세요. • 비가 온 뒤에는 카메라를 낮춰 물웅덩이에 비친 거리를 담아보세요. • 궁궐 입장권처럼 작은 물건은 가까이 찍고, 뒤로 장소가 살짝 보이게 남겨보세요." |
+
+- 24번 캐러셀 이미지 안의 16개 구도 전체는 그림 안 글자라 문구로 옮기지 않았고, 캡션에 적힌 6가지만 근거로 삼았습니다.
+- 캡션의 골목 소실점·바닷가 여백·사람 작게·차창 액자·물웅덩이는 기존 카드(리딩 라인·시선 여백·산 규모·액자 프레임·수면 대칭)와 겹쳐 새 카드로 만들지 않았고, 겹치지 않는 "작은 물건 가까이 + 장소를 뒤에"만 카드로 만들었습니다.

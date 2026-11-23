@@ -49,16 +49,14 @@ const SRC = {
   ig_clos: { t: '@clos_click 인스타그램 — 모바일 프로모드 접사 데모', u: 'https://www.instagram.com/reels/DV2MPnaCO4V/', v: '부분 확인(프레임)' },
   yt_stars: { t: '미드나잇 YouTube — 갤럭시로 은하수·밤하늘 촬영(ISO 3200·15초·수동초점)', u: 'https://www.youtube.com/watch?v=sUyBdFgieQc', v: '확인(영상 내용)' },
   ig_sunset: { t: '@photofreak_guy 인스타그램 — 노을 프로모드 ISO100·1/1600·WB8000', u: 'https://www.instagram.com/reel/DHL1L9fzqQG/', v: '확인(캡션)' },
+  th_picker: { t: '@today.picker Threads — 새 갤럭시 카메라 세팅 9단계(해상도 24·50MP·화질 최우선·설정 유지)', u: 'https://www.threads.com/@today.picker/post/DaTuE1EEvLZ', v: '확인(본문)' },
+  ig_zzingoon: { t: '@zzingoon_photo 인스타그램 — 여행지에서 쓰는 16가지 구도(골목·바닷가·차창·물웅덩이·소품)', u: 'https://www.instagram.com/p/DfrFboQI2NC/', v: '확인(캡션)' },
   nw_exposure: { t: '뉴스웍스 「감성 가득한 한 컷」 — 노출의 3요소(ISO·조리개·셔터)', u: 'https://www.newsworks.co.kr/news/articleView.html?idxno=794383', v: '확인' },
   hani_snow: { t: '한겨레 「폰카로 찍은 설경이 안 이쁘다면 이렇게」', u: 'https://www.hani.co.kr/arti/culture/culture_general/1182637.html', v: '확인' },
   hani_grid: { t: '한겨레 「여행 인생 사진 찍고 싶다면 격자를 활용하라」', u: 'https://www.hani.co.kr/arti/specialsection/esc_section/1187143.html', v: '확인' },
   hani_portrait: { t: '한겨레 「영화 포스터 같은 인물 사진」 — 인물사진 기능', u: 'https://www.hani.co.kr/arti/culture/culture_general/1176336.html', v: '확인' },
   hani_2015: { t: '한겨레 「스마트폰으로 휴가 사진 잘 찍는 14가지 방법」', u: 'https://www.hani.co.kr/arti/culture/travel/704472.html', v: '확인' },
   ontour_scene: { t: '온더투어 「장소별 스마트폰 구도 정리」', u: 'https://www.onthetour.co.kr/news/articleView.html?idxno=4318', v: '확인' },
-  ontour_night: { t: '온더투어 「스마트폰 하나로 도시 야경 담는 법」', u: 'https://www.onthetour.co.kr/news/articleView.html?idxno=5233', v: '확인' },
-  sd_night: { t: '삼성디스플레이 뉴스룸 「야경 사진 찍는 법」', u: 'https://news.samsungdisplay.com/16640', v: '확인' },
-  canon_comp: { t: '캐논코리아 원포인트레슨 「인물 사진 구도 잡기」', u: 'https://kr.canon/magazine/detail/4745', v: '확인' },
-  jamie_pose: { t: 'Jamie B Studio 「자연스러운 인물 사진 포즈」', u: 'https://jamiebphotography.com/natural-poses/', v: '확인' },
   dps_food: { t: 'Digital Photography School 「10 More Food Photography Tips」', u: 'https://digital-photography-school.com/food-photography-tips/', v: '확인' },
   apple_night: { t: 'Apple 지원 「iPhone 야간 모드 사용하기」', u: 'https://support.apple.com/en-us/102519', v: '확인' },
   apple_portrait: { t: 'Apple 지원 「iPhone 인물 사진 모드 사용하기」', u: 'https://support.apple.com/en-us/102398', v: '확인' },
@@ -176,7 +174,7 @@ const CARDS = [
     badges: [{ k: '자세', v: '두 손' }, { k: '보조', v: '벽에 기대기' }],
     fails: ['팔만 뻗어 든 채 야간 모드로 찍은 사진', '숨을 참아 어깨에 힘이 들어간 사진'],
     checks: ['팔꿈치가 몸에 붙어 있다', '두 손으로 쥐었다', '어깨에 힘이 없다'],
-    sources: [SRC.ontour_night]
+    sources: [SRC.tour]
   },
   {
     id: 'remote-shutter', cat: ['setting', 'solo'], level: 1, lens: ['1x'],
@@ -192,7 +190,7 @@ const CARDS = [
     badges: [{ k: '도구', v: '이어폰·워치' }, { k: '효과', v: '진동 제거' }],
     fails: ['리모컨을 연결해 놓고 폰을 손에 든 채 찍은 사진', '타이머와 리모컨을 겹쳐 셔터 타이밍을 놓친 경우'],
     checks: ['리모컨이 연결됐다', '폰이 고정돼 있다', '촬영 중 화면을 만지지 않았다'],
-    sources: [SRC.ontour_night]
+    sources: [SRC.tour]
   },
   {
     id: 'pro-triangle', cat: ['setting'], level: 2, lens: ['1x'],
@@ -224,7 +222,7 @@ const CARDS = [
     badges: [{ k: 'WB', v: '2300~10000K' }, { k: '모드', v: '프로' }],
     fails: ['자동 WB가 나트륨등에 끌려 전체가 노란 사진', 'K를 과하게 낮춰 얼굴까지 파랗게 나온 사진'],
     checks: ['K값을 직접 만졌다', '흰 부분이 희게 보인다', '피부색이 자연스럽다'],
-    sources: [SRC.sd_night, SRC.ontour_night]
+    sources: [SRC.sd, SRC.tour]
   },
   {
     id: 'snow-ev', cat: ['setting', 'scene'], level: 1, lens: ['1x'],
@@ -256,7 +254,7 @@ const CARDS = [
     badges: [{ k: '설정', v: '노출 시간' }, { k: '표시', v: '3·5·10초' }],
     fails: ['자동 시간을 믿고 들고 찍어 흔들린 사진', '시간을 최대로 두고 움직이는 피사체를 찍은 사진'],
     checks: ['노출 시간을 확인했다', '폰이 고정돼 있다', '피사체가 정지해 있다'],
-    sources: [SRC.apple_night, SRC.ontour_night]
+    sources: [SRC.apple_night, SRC.tour]
   },
   {
     id: 'portrait-distance', cat: ['setting', 'pose'], level: 2, lens: ['3x'],
@@ -304,7 +302,7 @@ const CARDS = [
     badges: [{ k: '형식', v: 'RAW+JPEG' }, { k: '주의', v: '용량' }],
     fails: ['저장 공간이 없어 RAW가 저장되지 않은 경우', 'RAW를 켜 두고 연사해 저장이 밀린 경우'],
     checks: ['RAW가 켜져 있다', '저장 공간이 충분하다', '편집에서 계조가 살아난다'],
-    sources: [SRC.ontour_night]
+    sources: [SRC.tour]
   },
   {
     id: 'grading', cat: ['setting', 'cafe'], level: 2, lens: ['1x'],
@@ -321,6 +319,22 @@ const CARDS = [
     fails: ['채도만 올려 꽃잎이 형광색으로 뜬 사진', '틴트를 과하게 올려 전체가 분홍 안개가 된 사진'],
     checks: ['하이라이트가 살아 있다', '채도가 자연스럽다', '흰 꽃잎이 하얗게 보인다'],
     sources: [SRC.ig_23]
+  },
+  {
+    id: 'phone-24mp', cat: ['setting'], level: 2, lens: ['1x'],
+    title: '해상도 12MP를 24MP로 올리기',
+    tagline: '새 갤럭시는 12MP로 시작합니다. 설정 세 가지면 해상도와 화질이 함께 올라갑니다.',
+    keywords: '해상도 화질 24MP 50MP 화질 최우선 설정 유지 갤럭시',
+    principle: '새로 산 갤럭시는 카메라 상단이 12M(12MP)로 시작하고 사진 향상 옵션도 기본값에 머뭅니다. 촬영자 @today.picker가 정리한 순서대로 해상도를 24MP(또는 50MP)로 올리고 화질 최우선을 켜면 같은 상태로 이어집니다. 설정 유지를 함께 켜 두면 다음에 카메라를 열어도 그대로 유지됩니다.',
+    steps: [
+      '카메라 상단의 12M(12MP) 표시를 눌러 24MP나 50MP로 바꿔준다.',
+      '설정 > 사진 향상에서 화질 최우선과 장면별 맞춤 촬영을 켜준다.',
+      '카메라 설정의 설정 유지를 모두 켜서 다음 촬영에도 유지되게 한다.'
+    ],
+    badges: [{ k: '해상도', v: '24MP' }, { k: '화질', v: '최우선' }, { k: '설정', v: '유지 ON' }],
+    fails: ['12MP 기본값 그대로 찍어 확대에서 뭉개지는 사진', '설정 유지를 켜지 않아 다음 촬영에서 원래대로 돌아가 있는 경우'],
+    checks: ['상단 표시가 24M 이상이다', '화질 최우선이 켜져 있다', '설정 유지가 켜져 있다'],
+    sources: [SRC.th_picker]
   },
 
   /* ── 혼자 여행·셀카봉 ─────────────────────────── */
@@ -373,20 +387,20 @@ const CARDS = [
     sources: [SRC.pajoox, SRC.nightmarket_guide]
   },
   {
-    id: 'selfie-marker', cat: ['solo'], level: 2, lens: ['1x'],
-    title: '물병으로 내 자리 먼저 확인',
-    tagline: '빈 프레임에 물병을 세워 두고, 그 자리에 내가 들어갑니다.',
-    keywords: '자리 표시 마커 테스트 컷 혼자 구도 잡기',
-    principle: '혼자서는 내가 화면 어디에 서야 하는지 알기 어렵습니다. 물병이나 가방을 설 자리에 두고 1~2장 테스트 컷을 찍으면 여백과 수평을 눈으로 확인할 수 있습니다.',
+    id: 'selfie-marker', cat: ['solo', 'scene'], level: 2, lens: ['1x'],
+    title: '빈 프레임에 물병, 그 자리에 내가',
+    tagline: '배경을 먼저 정하고, 설 자리를 물병으로 확인한 뒤 들어갑니다.',
+    keywords: '자리 표시 마커 물병 테스트 컷 혼자 여행 배경 먼저 인물 나중',
+    principle: '혼자서는 내가 화면 어디에 서야 하는지 알기 어렵습니다. 배경과 구도를 먼저 잡아 폰을 고정하고, 설 자리에 물병이나 가방을 두고 1~2장 테스트 컷을 찍으면 여백과 수평을 눈으로 확인할 수 있습니다. 확인한 자리에 들어가 타이머로 찍으면 인물이 배경에 떠 보이지 않고 여행지도 함께 남습니다.',
     steps: [
-      '폰을 고정하고 내가 설 자리에 물병을 둔다.',
-      '테스트 컷으로 위치·여백·수평을 확인한다.',
-      '물병을 치우고 그 자리에 서서 타이머로 찍는다.'
+      '빈 프레임으로 배경과 구도를 먼저 잡고 폰을 삼각대나 난간에 고정한다.',
+      '내가 설 자리에 물병을 두고 테스트 컷으로 위치·여백·수평을 확인한다.',
+      '물병을 치우고 그 자리에 서서 3초 타이머로 찍는다.'
     ],
-    badges: [{ k: '도구', v: '물병·가방' }, { k: '절차', v: '테스트 컷' }],
-    fails: ['마커 없이 감으로 서서 화면 끝에 걸린 사진', '테스트 컷에서 수평을 확인하지 않고 그대로 찍기'],
-    checks: ['테스트 컷으로 자리를 확인했다', '발끝이 잘리지 않는다', '배경선이 머리를 가르지 않는다'],
-    sources: [SRC.jetlag]
+    badges: [{ k: '순서', v: '배경 먼저' }, { k: '도구', v: '물병·타이머' }],
+    fails: ['인물부터 세우고 배경을 나중에 맞춘 사진', '마커 없이 감으로 서서 화면 끝에 걸린 사진', '배경이 잘려 어느 여행지인지 모를 사진'],
+    checks: ['배경과 구도가 먼저 정해졌다', '테스트 컷으로 자리와 수평을 확인했다', '발끝이 잘리지 않고 여행지가 보인다'],
+    sources: [SRC.jetlag, SRC.hani_grid]
   },
   {
     id: 'backview', cat: ['solo', 'scene'], level: 1, lens: ['1x'],
@@ -451,22 +465,6 @@ const CARDS = [
     fails: ['서서 내려다봐 머리만 크고 배경이 바닥인 사진', '플래시를 켜 눈이 하얗게 뜨고 아이가 놀란 사진'],
     checks: ['렌즈가 눈높이다', '눈에 초점이 맞았다', '배경이 단순하다'],
     sources: [SRC.kaminbeth, SRC.petpotal]
-  },
-  {
-    id: 'scene-first', cat: ['solo', 'scene'], level: 1, lens: ['1x'],
-    title: '배경을 먼저 정하고 내가 들어간다',
-    tagline: '주인공을 따라다니지 말고 배경과 구도를 먼저 결정하세요.',
-    keywords: '혼자 여행 배경 구도 먼저 인물 나중',
-    principle: '좋은 인물 사진은 인물을 떼어 놓아도 사진이 됩니다. 여행지에서는 배경과 구도를 먼저 잡고 폰을 고정한 뒤 정한 자리에 들어가 3초 타이머로 찍는 편이 안정적입니다.',
-    steps: [
-      '빈 프레임으로 배경과 구도를 먼저 잡는다.',
-      '삼각대나 난간에 폰을 고정한다.',
-      '정한 자리에 들어가 타이머로 찍는다.'
-    ],
-    badges: [{ k: '순서', v: '배경 먼저' }, { k: '도구', v: '타이머' }],
-    fails: ['인물부터 세우고 배경을 나중에 맞춘 사진', '배경이 잘려 여행지가 어디인지 모를 사진'],
-    checks: ['배경이 먼저 정해졌다', '인물이 그 안에 들어갔다', '여행지가 보인다'],
-    sources: [SRC.hani_grid]
   },
   {
     id: 'phone-flip', cat: ['solo', 'scene'], level: 1, lens: ['1x'],
@@ -602,16 +600,16 @@ const CARDS = [
     id: 'body-turn', cat: ['pose'], level: 2, lens: ['1x', '3x'],
     title: '몸은 45도, 얼굴만 정면',
     tagline: '정면으로 딱 서면 증명사진, 45도로 틀면 인물사진이 됩니다.',
-    keywords: '45도 각도 몸 틀기 체중 어깨 정면 인물',
+    keywords: '45도 각도 몸 틀기 몸통 어깨 정면 인물',
     principle: '몸통과 발끝을 30~45도 돌리고 얼굴만 렌즈로 가져오면 몸의 선이 부드러워지고 어깨 힘이 빠져 보입니다. 정면보다 목선이 길어 보입니다.',
     steps: [
       '발끝과 몸통을 30~45도 돌린다.',
-      '한쪽 다리에 체중을 싣고 반대 무릎을 푼다.',
-      '얼굴만 렌즈로 돌리고 턱을 1cm 앞으로 낸다.'
+      '어깨선이 렌즈와 나란해지지 않게 바깥쪽 어깨를 살짝 뒤로 보낸다.',
+      '얼굴만 렌즈 쪽으로 돌려 두 눈이 모두 보이게 한다.'
     ],
     badges: [{ k: '각도', v: '30~45°' }, { k: '얼굴', v: '정면' }],
-    fails: ['어깨를 군인처럼 펴 목이 짧아 보이는 사진', '양발에 똑같이 힘을 주어 굳은 자세'],
-    checks: ['몸통이 비스듬하다', '어깨가 내려가 있다', '턱선이 살아 있다'],
+    fails: ['어깨를 군인처럼 펴 목이 짧아 보이는 사진', '몸과 얼굴이 같은 방향으로 돌아 정면이 되지 않은 사진'],
+    checks: ['몸통이 비스듬하다', '얼굴은 렌즈를 향한다', '어깨가 들리지 않았다'],
     sources: [SRC.jamie, SRC.stylezine]
   },
   {
@@ -772,7 +770,7 @@ const CARDS = [
     badges: [{ k: '확인', v: '머리 뒤' }, { k: '해결', v: '한 발 이동' }],
     fails: ['머리 위로 기둥이 솟아 삿갓을 쓴 사진', '얼굴을 나뭇가지가 가로지른 사진'],
     checks: ['머리 뒤가 깨끗하다', '얼굴에 선이 없다', '배경이 단순하다'],
-    sources: [SRC.jamie, SRC.canon_comp]
+    sources: [SRC.jamie, SRC.canon]
   },
   {
     id: 'horizon-neck', cat: ['pose', 'scene'], level: 2, lens: ['1x', '3x'],
@@ -788,7 +786,7 @@ const CARDS = [
     badges: [{ k: '경계', v: '목 아래' }, { k: '구도', v: '수평' }],
     fails: ['수평선이 목을 가로질러 목이 잘려 보이는 사진', '수평선이 기울어 불안한 사진'],
     checks: ['경계선이 목 아래다', '수평이 맞다', '인물이 배경과 분리된다'],
-    sources: [SRC.canon_comp]
+    sources: [SRC.canon]
   },
   {
     id: 'center-symmetric', cat: ['pose'], level: 2, lens: ['1x'],
@@ -804,7 +802,7 @@ const CARDS = [
     badges: [{ k: '구도', v: '중앙' }, { k: '조건', v: '좌우 대칭' }],
     fails: ['한쪽에만 건물이 있는데 중앙에 세운 사진', '중앙인데 수직이 기운 사진'],
     checks: ['좌우 배경이 비슷하다', '수직이 맞다', '인물이 정중앙이다'],
-    sources: [SRC.canon_comp]
+    sources: [SRC.canon]
   },
   {
     id: 'weight-shift', cat: ['pose'], level: 1, lens: ['1x'],
@@ -836,7 +834,7 @@ const CARDS = [
     badges: [{ k: '자세', v: '의자 끝 1/3' }, { k: '앵글', v: '눈높이+' }],
     fails: ['등을 붙이고 앉아 상체가 뒤로 젖혀진 사진', '무릎이 화면 아래로 잘려 다리가 사라진 사진'],
     checks: ['의자 끝에 앉았다', '상체가 앞으로 숙여졌다', '무릎과 발이 프레임에 있다'],
-    sources: [SRC.jamie, SRC.canon_comp]
+    sources: [SRC.jamie, SRC.canon]
   },
   {
     id: 'pair-pose', cat: ['pose'], level: 2, lens: ['1x'],

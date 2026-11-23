@@ -63,8 +63,11 @@ button{font-family:inherit;color:inherit;cursor:pointer}
 .hero{position:relative;z-index:1;background:linear-gradient(180deg,#f9f3e6 0%,var(--paper) 100%);border-bottom:1px solid var(--line)}
 .hero__inner{max-width:1240px;margin:0 auto;padding:56px 24px 44px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:48px;align-items:center}
 .eyebrow{font-size:11px;letter-spacing:.32em;color:var(--amber);margin:0 0 14px;font-weight:600}
-.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,3.9vw,54px);line-height:1.22;margin:0 0 18px;letter-spacing:-.02em}
-.hero h1 span{color:var(--amber);font-style:italic}
+.hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,3.9vw,51px);line-height:1.22;margin:0 0 18px;letter-spacing:-.02em}
+.hero h1 em{color:var(--amber);font-style:italic}
+.hero h1 .hl-1,.hero h1 .hl-2{display:block}
+/* 둘째 줄은 어떤 폭에서도 한 줄로 — 줄바꿈을 금지하고 폰트가 폭에 맞춰 줄어듭니다 */
+.hero h1 .hl-2{white-space:nowrap}
 .lede{max-width:34em;color:var(--muted);font-size:15.5px;margin:0 0 26px}
 .lede strong{color:var(--ink);font-weight:600}
 .hero__actions{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
@@ -191,6 +194,7 @@ td a{color:#8a5a1f}
 .badge--ok{background:rgba(92,138,99,.14);color:#41704a}
 .badge--part{background:rgba(224,164,88,.18);color:#8a5a1f}
 .badge--no{background:rgba(176,90,67,.14);color:#94402c}
+.badge--dup{background:rgba(30,27,22,.07);color:#6b6459}
 .footnote{font-size:12px;color:var(--muted);margin:18px 0 0;line-height:1.7}
 
 /* ── footer ──────────────────────────── */
@@ -333,7 +337,10 @@ td a{color:#8a5a1f}
   .hero__film{display:none}
   .filmstrip{padding:14px 10px;transform:rotate(-.5deg)}
   .filmstrip__frames .frame{aspect-ratio:16/9}
-  .hero h1{font-size:clamp(27px,7.4vw,38px)}
+  /* 둘째 줄 "가장 빛나는 한 컷을 남기는 법"을 390px 이하에서도 한 줄로 유지:
+     좌우 여백 32px를 뺀 폭을 13.2em(글자 폭 합계)로 나눈 크기를 상한으로 씁니다. */
+  .hero h1{font-size:clamp(19px,calc((100vw - 32px)/13.2),38px)}
+  .hero h1 .hl-2{letter-spacing:-.03em}
   .lede{font-size:14.5px}
   .stats{gap:18px}
   .stats dd{font-size:20px}

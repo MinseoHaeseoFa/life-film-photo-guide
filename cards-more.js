@@ -307,6 +307,22 @@ CARDS.push(
     checks: ['수평이 유지됐다', '이음새가 보이지 않는다', '움직이는 사람이 없다'],
     sources: [SRC.hani_2015]
   },
+  {
+    id: 'souvenir-detail', cat: ['scene'], level: 1, lens: ['1x', '3x'],
+    title: '여행 소품은 가까이, 장소는 뒤에',
+    tagline: '입장권·컵 하나면 그날의 장소가 남습니다.',
+    keywords: '여행 소품 디테일 입장권 기념품 클로즈업 장소 배경',
+    principle: '궁궐 입장권처럼 그 장소에서만 손에 있는 작은 물건은 가까이 찍되, 뒤로 장소가 살짝 보이게 남겨야 합니다. 물건만 꽉 채우면 어디서 찍었는지 알 수 없고, 풍경만 담으면 그날 손에 있던 것이 사라집니다.',
+    steps: [
+      '입장권·컵·기념품처럼 그 장소에서만 손에 있는 물건을 고른다.',
+      '물건에 가까이 다가가 화면의 절반 이상을 채운다.',
+      '배경에 기와·간판 같은 장소의 표지가 흐리게라도 남게 각도를 잡는다.'
+    ],
+    badges: [{ k: '거리', v: '가까이' }, { k: '배경', v: '장소 힌트' }],
+    fails: ['물건만 꽉 채워 어느 여행지인지 알 수 없는 사진', '배경을 다 담으려다 물건이 작아진 사진'],
+    checks: ['물건이 화면 절반 이상을 채운다', '배경에 장소 표지가 남아 있다', '물건에 초점이 맞았다'],
+    sources: [SRC.ig_zzingoon]
+  },
 
   /* ── 카페·음식 ───────────────────────────────── */
   {
@@ -467,7 +483,7 @@ CARDS.push(
     badges: [{ k: '밝기', v: '-1칸' }, { k: '플래시', v: 'OFF' }],
     fails: ['매대 불빛에 흰 접시가 하얗게 날아간 사진', '플래시를 켜 기름기가 번들거리는 사진'],
     checks: ['접시의 흰색이 살아 있다', '플래시가 꺼져 있다', '음식 색이 노랗게 치우치지 않았다'],
-    sources: [SRC.nightmarket_guide, SRC.thec8kl]
+    sources: [SRC.nightmarket_guide, SRC.ava_nightmarket]
   },
   {
     id: 'food-edit', cat: ['cafe'], level: 2, lens: ['1x'],
@@ -613,7 +629,7 @@ CARDS.push(
     badges: [{ k: 'ISO', v: '400' }, { k: '셔터', v: '1초' }, { k: '고정', v: '필수' }],
     fails: ['손으로 들고 장노출해 흔들린 사진', '플래시를 켜 근처만 하얗게 날아간 사진'],
     checks: ['폰이 고정됐다', 'ISO 400 안팎이다', '간판이 날아가지 않았다'],
-    sources: [SRC.ontour_night, SRC.sd_night]
+    sources: [SRC.tour, SRC.sd]
   },
   {
     id: 'fireworks', cat: ['night'], level: 3, lens: ['1x'],
@@ -693,7 +709,7 @@ CARDS.push(
     badges: [{ k: 'ISO', v: '100' }, { k: '셔터', v: '1/1600' }, { k: 'WB', v: '8000K' }],
     fails: ['자동 모드로 찍어 하늘 색이 회색으로 죽은 사진', '해가 완전히 진 뒤에 찍어 색이 사라진 사진'],
     checks: ['하늘에 주황이 살아 있다', '해가 떠 있는 시간대다', '밝기가 날아가지 않았다'],
-    sources: [SRC.ig_sunset, SRC.sd_night]
+    sources: [SRC.ig_sunset, SRC.sd]
   },
   {
     id: 'magic-hour-30', cat: ['night', 'scene'], level: 2, lens: ['1x', '3x'],
@@ -709,7 +725,7 @@ CARDS.push(
     badges: [{ k: '시간', v: '±30분' }, { k: '효과', v: '스카이라인' }],
     fails: ['완전히 어두워진 뒤 도착해 하늘이 검은 사진', '너무 일찍 와서 불빛이 없는 사진'],
     checks: ['하늘에 색이 남아 있다', '건물 불빛이 켜졌다', '스카이라인이 보인다'],
-    sources: [SRC.sd_night]
+    sources: [SRC.sd]
   },
   {
     id: 'backlight-rim', cat: ['night', 'scene'], level: 2, lens: ['1x', '3x'],
@@ -741,7 +757,7 @@ CARDS.push(
     badges: [{ k: '설정', v: '플래시 OFF' }, { k: '한계', v: '2~3m' }],
     fails: ['플래시가 앞 사람 얼굴만 하얗게 만든 사진', '플래시 때문에 배경이 더 어두워진 사진'],
     checks: ['플래시가 꺼져 있다', '앞쪽 물체가 하얗지 않다', '배경 불빛이 살아 있다'],
-    sources: [SRC.ontour_night]
+    sources: [SRC.tour]
   },
   {
     id: 'night-live-off', cat: ['night'], level: 2, lens: ['1x'],
@@ -837,6 +853,6 @@ CARDS.push(
     badges: [{ k: '셔터', v: '10초' }, { k: 'ISO', v: '100' }],
     fails: ['서 있는 사람을 프레임에 두어 한 명만 남은 사진', '폰이 흔들려 건물까지 번진 사진'],
     checks: ['폰이 완전히 고정됐다', '셔터가 10초 안팎이다', '서 있는 사람이 프레임에 없다'],
-    sources: [SRC.sd_night, SRC.tour]
+    sources: [SRC.sd, SRC.tour]
   }
 );

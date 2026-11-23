@@ -25,7 +25,8 @@ const PHOTOS = {
   'traveler-viewpoint': { src: 'assets/img/traveler-viewpoint.jpg', w: 1280, h: 853, alt: '셀카봉을 높이 든 여행자의 뒷모습과 해안' },
   'walking-candid': { src: 'assets/img/walking-candid.jpg', w: 1280, h: 853, alt: '햇살 드는 골목을 걷는 남자의 전신' },
   'wide-selfie': { src: 'assets/img/wide-selfie.jpg', w: 1280, h: 853, alt: '광장에서 초광각으로 찍은 두 사람' },
-  'blue-hour-valley': { src: 'assets/img/blue-hour-valley.jpg', w: 1280, h: 853, alt: '블루아워 전망대에서 계곡을 바라보는 인물' },
+  'phone-24mp': { src: 'assets/img/phone-24mp.jpg', w: 1280, h: 853, alt: '카페에서 폰으로 사진 목록을 크게 확인하는 사람' },
+  'souvenir-detail': { src: 'assets/img/souvenir-detail.jpg', w: 1280, h: 1024, alt: '창덕궁 관람권과 도자기 컵, 뒤로 흐린 궁궐 처마' },
   'phone-flip': { src: 'assets/img/phone-flip.jpg', w: 900, h: 600, alt: '젖은 거리 바닥 낮은 곳에서 든 폰과 신발' },
   'many-angles': { src: 'assets/img/many-angles.jpg', w: 900, h: 600, alt: '전망대에서 폰으로 사진을 찍는 여행자' },
   'shadow-self': { src: 'assets/img/shadow-self.jpg', w: 900, h: 600, alt: '낮은 해에 길게 뻗은 여행자의 그림자' },
@@ -245,12 +246,6 @@ const MEDIA = {
     before: { t: 'scale(1.4) translateX(-24%)', f: 'contrast(1.06) saturate(.92)', tone: 'none', warn: 'crop', note: '얼굴이 가장자리 · 왜곡 심함' },
     after: aAt(35, 45, '얼굴 중앙 · 0.5x', ['thirds'])
   },
-  'scene-first': {
-    photo: 'blue-hour-valley', pos: '50% 50%',
-    exif: EX('35mm', 'f/2.8', 'ISO 400', '1/60s', 'EV -0.7', 'WB 4300K'),
-    before: bZoom(1.3, '인물부터 넣고 배경은 나중'),
-    after: aAt(50, 50, '배경 먼저 · 인물 투입', ['thirds'])
-  },
   'phone-flip': {
     photo: 'phone-flip', pos: '70% 40%',
     exif: EX('24mm', 'f/2.2', 'ISO 100', '1/320s', 'EV 0.0', 'WB 5800K'),
@@ -394,5 +389,17 @@ const MEDIA = {
     exif: EX('50mm', 'f/4.0', 'ISO 100', '1/500s', 'EV 0.0', 'WB 5600K'),
     before: bZoom(1.3, '두 사람 사이가 벌어짐'),
     after: aAt(48, 35, '안쪽 어깨 겹치기', ['thirds'])
+  },
+  'phone-24mp': {
+    photo: 'phone-24mp', pos: '55% 50%',
+    exif: EX('24mm', 'f/2.2', 'ISO 64', '1/120s', 'EV 0.0', 'WB 5200K'),
+    before: bSoft('12MP 기본값 · 확대하면 뭉개짐'),
+    after: aAt(55, 50, '24MP · 화질 최우선', ['thirds'])
+  },
+  'souvenir-detail': {
+    photo: 'souvenir-detail', pos: '55% 45%',
+    exif: EX('50mm', 'f/2.0', 'ISO 200', '1/250s', 'EV -0.3', 'WB 5400K'),
+    before: bZoom(1.4, '물건만 꽉 채워 장소가 사라짐'),
+    after: aAt(55, 45, '소품은 가까이 · 장소는 뒤에', ['thirds'])
   },
 };

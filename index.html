@@ -31,16 +31,16 @@
     <div class="hero__inner">
       <div class="hero__copy">
         <p class="eyebrow">FIELD NOTES · 2026</p>
-        <h1>인생이라는 필름,<br/><span>가장 빛나는 한 컷</span>을 남기는 법</h1>
+        <h1><span class="hl-1">인생이라는 필름,</span><span class="hl-2"><em>가장 빛나는 한 컷</em>을 남기는 법</span></h1>
         <p class="lede">지금 눈앞의 순간에 맞는 촬영법을 골라 바로 쓰세요. 카드마다 <strong>다른 실사 사진 한 장과 세 단계</strong>로 정리했습니다.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="#cards">상황별로 찾기</a>
           <button class="btn btn--ghost" id="randomBtn" type="button">랜덤 한 컷 뽑기</button>
         </div>
         <dl class="stats">
-          <div><dt>실전 카드</dt><dd id="statCards">100</dd></div>
-          <div><dt>검증한 원문 링크</dt><dd>13</dd></div>
-          <div><dt>참고 링크</dt><dd>65</dd></div>
+          <div><dt>실전 카드</dt><dd id="statCards">101</dd></div>
+          <div><dt>검증한 원문 링크</dt><dd id="statLinks" title="본문·캡션까지 확인한 고유 게시물 수(부분 확인 포함)">14</dd></div>
+          <div><dt>참고 링크</dt><dd id="statRefs" title="카드가 실제로 인용한 고유 주소 수">62</dd></div>
         </dl>
       </div>
       <div class="hero__film" aria-hidden="true">
@@ -111,11 +111,11 @@
   <section class="section sources" id="sources">
     <div class="section__head">
       <h2>출처 검증 노트</h2>
-      <p>요청하신 링크 13개를 직접 열어 확인했습니다. 확인된 것과 확인하지 못한 것을 나눠 적었습니다.</p>
+      <p id="srcSummary">요청 링크 24건(고유 게시물 15건)을 직접 열어 확인했습니다. 확인된 것과 확인하지 못한 것, 이미 있어 제외한 중복을 나눠 적었습니다.</p>
     </div>
     <div class="sourceGrid">
       <div class="sourceCard">
-        <h3><span class="dot dot--ok"></span>확인됨 <small>10</small></h3>
+        <h3><span class="dot dot--ok"></span>확인됨 <small id="cntOk">12</small></h3>
         <ul>
           <li><b>@elanvital7</b> — 스마트폰 사진 구도와 빛 20가지 (캡션 확인)</li>
           <li><b>@ukwanghyun</b> — 가을사진 7가지 (캡션 확인)</li>
@@ -124,24 +124,26 @@
           <li><b>@junnywhere</b> — 비·불꽃놀이·인물모드·별 사진 (캡션 4건 확인)</li>
           <li><b>@photofreak_guy</b> — 노을 프로모드 값 (캡션 확인)</li>
           <li><b>미드나잇 YouTube</b> — 갤럭시 은하수 촬영 (영상 내용 확인)</li>
+          <li><b>@today.picker</b> Threads — 새 갤럭시 카메라 세팅 9단계 (본문 확인)</li>
+          <li><b>@zzingoon_photo</b> — 여행지 16가지 구도 (캡션 확인)</li>
         </ul>
       </div>
       <div class="sourceCard">
-        <h3><span class="dot dot--part"></span>부분 확인 <small>2</small></h3>
+        <h3><span class="dot dot--part"></span>부분 확인 <small id="cntPart">2</small></h3>
         <ul>
           <li><b>@clos_click</b> — 캡션에 기법 설명 없음. 영상 프레임에서 접사·프로모드 데모로만 확인</li>
           <li><b>@kfconcept</b> — 캡션에 수치 없음. 차량 라이트 트레일(장노출) 주제만 확인</li>
         </ul>
       </div>
       <div class="sourceCard">
-        <h3><span class="dot dot--no"></span>접근 제한 <small>1</small></h3>
+        <h3><span class="dot dot--no"></span>접근 제한 <small id="cntNo">1</small></h3>
         <ul>
           <li><b>@pure.moood</b> Threads — “이 콘텐츠는 일부 사용자만 이용할 수 있습니다”로 본문을 볼 수 없어 <b>내용을 넣지 않았습니다.</b></li>
         </ul>
       </div>
     </div>
     <details class="sourceMore">
-      <summary>링크 13개 상태 자세히 보기</summary>
+      <summary>링크 <span id="linkTotal">24</span>건 상태 자세히 보기</summary>
       <div class="tableWrap">
         <table>
           <thead><tr><th>#</th><th>링크</th><th>유형</th><th>상태</th><th>확인한 내용</th></tr></thead>
