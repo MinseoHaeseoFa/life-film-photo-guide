@@ -147,8 +147,10 @@ button{font-family:inherit;color:inherit;cursor:pointer}
 .card__fav:hover{transform:scale(1.06)}
 .card__fav[aria-pressed="true"]{background:var(--gold);color:#2a1c0c}
 .card__body{padding:15px 16px 17px;display:flex;flex-direction:column;gap:7px;flex:1}
-.card__meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:10.5px;color:var(--muted);letter-spacing:.02em}
-.tag{background:rgba(200,135,58,.12);color:#8a5a1f;padding:2px 7px;border-radius:5px;font-weight:600}
+.card__meta{display:flex;gap:5px 6px;flex-wrap:wrap;align-items:center;font-size:10.5px;color:var(--muted);letter-spacing:.02em;min-width:0}
+.tag{background:rgba(200,135,58,.12);color:#8a5a1f;padding:2px 7px;border-radius:5px;font-weight:600;white-space:nowrap;line-height:1.45}
+.tag--match{background:rgba(200,135,58,.24);color:#6f4310;box-shadow:inset 0 0 0 1px rgba(200,135,58,.5)}
+.tag--sub{background:rgba(30,27,22,.055);color:var(--ink-2);font-weight:500}
 .lens{background:rgba(30,27,22,.05);color:var(--ink-2);padding:2px 7px;border-radius:5px;font-weight:600;letter-spacing:.02em}
 .lvl{display:inline-flex;gap:2px;align-items:center}
 .lvl em{font-style:normal;margin-left:4px;font-size:10.5px}
@@ -244,7 +246,9 @@ td a{color:#8a5a1f}
 .vf__related .thumb--related .hud__corner{display:none}
 .vf__related span{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .modal__body{padding:30px 28px 28px;min-width:0}
-.modal__cat{margin:0 0 8px;font-size:11px;letter-spacing:.12em;color:var(--amber);font-weight:600}
+.modal__cat{margin:0 0 8px;font-size:11px;letter-spacing:.12em;color:var(--amber);font-weight:600;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.modal__cat .tag{font-size:10.5px;letter-spacing:.02em}
+.modal__lv{font-size:11px;letter-spacing:.12em;color:var(--amber)}
 .modal__head h2{font-family:var(--serif);font-size:clamp(22px,2.6vw,30px);line-height:1.25;margin:0 0 10px;letter-spacing:-.02em}
 .modal__principle{margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.7}
 .modal__badges{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 6px}
@@ -361,6 +365,8 @@ td a{color:#8a5a1f}
   .filterrow{gap:8px}
   .chiprow{mask-image:linear-gradient(90deg,#000 94%,transparent)}
   .card h3{font-size:19px}
+  .card__meta{font-size:10px;gap:4px 5px}
+  .card__meta .tag,.card__meta .lens{padding:2px 6px}
   .sources{padding-bottom:48px}
   .modal{padding:0;align-items:stretch}
   .modal__panel{width:100%;max-height:100vh;border-radius:0;animation:slide .24s ease}

@@ -154,6 +154,18 @@
     return `<span class="lvl" title="${LEVEL_TXT[n]}">${[1, 2, 3].map(i => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}<em>${LEVEL_TXT[n]}</em></span>`;
   }
 
+  /* 카드의 분류 배지 — 카드는 두 분야에 속할 수 있으므로 전부 표시합니다.
+     지금 고른 탭의 분류가 이 카드에 걸렸다면 그 배지를 맨 앞에 두고 강조합니다. */
+  function catBadges(card) {
+    const hit = state.cat !== 'all' && card.cat.includes(state.cat);
+    const order = hit ? [state.cat].concat(card.cat.filter(k => k !== state.cat)) : card.cat.slice();
+    return order.map((k, i) => {
+      const mod = (i === 0 && hit) ? ' tag--match' : (i > 0 ? ' tag--sub' : '');
+      const label = CAT_LABEL[k] || k;
+      return `<span class="tag${mod}" title="${esc(label)} 분야">${esc(label)}</span>`;
+    }).join('');
+  }
+
   function renderGrid() {
     const q = state.q.trim().toLowerCase();
     let list = CARDS.filter(c => {
@@ -184,7 +196,7 @@
         </div>
         <div class="card__body">
           <div class="card__meta">
-            <span class="tag">${CAT_LABEL[c.cat[0]]}</span>
+            ${catBadges(c)}
             <span class="lens">${c.lens.join(' · ')}</span>
             ${levelDots(c.level)}
           </div>
@@ -228,7 +240,7 @@
     $('#modal').hidden = false;
     document.body.style.overflow = 'hidden';
 
-    $('#mCat').textContent = card.cat.map(c => CAT_LABEL[c]).join(' · ') + '  ·  ' + LEVEL_TXT[card.level];
+    $('#mCat').innerHTML = catBadges(card) + `<span class="modal__lv">${LEVEL_TXT[card.level]}</span>`;
     $('#mTitle').textContent = card.title;
     $('#mPrinciple').textContent = card.principle;
     $('#mBadges').innerHTML = card.badges.map(b => `<span class="mbadge"><b>${b.k}</b>${b.v}</span>`).join('');
